@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+
+    <ul class="rooms">
+        {% for room in rooms %}
+            <li class="room-link" data-room-id="{{ room.id }}">{{ room.title }} {{ room.movie }}</li>
+        {% endfor %}
+    </ul>
+
+    <div id="chats">
+    </div>
+
+{% endblock content %}
+
+{% block extra_scripts %}
+<script type="text/javascript" src='{% static "multichat/js/multichat.js" %}'></script>
+<script type="text/javascript" src='{% static "multichat/js/reconnecting-websocket.min.js" %}'></script>
+{% endblock %}

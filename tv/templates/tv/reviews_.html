@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+                        <form action="{% url "review_create" movie.pk %}" method="post" enctype="multipart/form-data"
+                            style="margin-bottom: 50px">
+                            {% csrf_token %}
+                            {{ review_form.as_p }}
+                            <input type="submit" value="Save"/>
+                        </form>
+
+{% endblock content %}

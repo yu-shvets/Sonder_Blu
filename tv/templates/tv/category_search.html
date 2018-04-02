@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+   <form action="" method="get">
+
+   {{ filter.form.as_p }}
+
+   <input type="submit" value="Choose" class="btn btn-default" style="margin-left: 20px"/>
+   </form>
+
+    {% for movie in object_list %}
+
+        <h2>Movies</h2>
+                        <h4>{{ movie.name }}</h4>
+                        <p>Rating: {{ movie.rating }}</p>
+                        <p>Category:
+                            {% for category in movie.category.all %}
+                                <a href="#">{{ category }}</a>
+                            {% endfor %}
+                        </p>
+                        <video src="{{ movie.movie_file.url }}" controls width='75%' height='60%'></video>
+                        <p>
+                            <a href="{% url 'like' %}" data-id="{{ movie.id }}"
+                              class="btn btn-primary like">Likes: {{ movie.total_likes }}</a>
+
+                        <button class="btn btn-primary room-link" data-room-id={{ movie.room.id }}>Chat</button>
+                        <div id="chats">
+                        </div>
+
+    {% endfor %}
+
+{% endblock content %}

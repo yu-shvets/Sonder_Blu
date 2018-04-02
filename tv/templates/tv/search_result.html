@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+    <h4>You search for: {{ query }}</h4>
+    <div class="row">
+        <div class="col-md-8">
+            {% if movies %}
+            <h2>Movies</h2>
+            {% for movie in movies %}
+                <h4>{{ movie.name }}</h4>
+                <p>Rating: {{ movie.rating }}</p>
+                <p>Category:
+                    {% for category in movie.category.all %}
+                        <a href="#">{{ category }}</a>
+                    {% endfor %}
+                </p>
+                <video src="{{ movie.movie_file.url }}" controls width='75%' height='60%'>
+                </video>
+                <p style="text-align: justify">{{ movie.description }}</p>
+                <hr>
+            {% endfor %}
+            {% else %}
+            <h2>No items to display</h2>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock content %}

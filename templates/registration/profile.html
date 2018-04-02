@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block meta_title %}{{ user_info.username }}{% endblock meta_title %}
+
+{% block content %}
+
+    <table class="table table-striped">
+
+        <tr>
+            <td>Username:</td>
+            <td>{{ user_info.username }}</td>
+        </tr>
+
+        {% if user_info.email %}
+            <tr>
+                <td>Email:</td>
+                <td>{{ user_info.email }}</td>
+            </tr>
+        {% endif %}
+
+        {% if user_info.profile.gender %}
+            <tr>
+                <td>Gender:</td>
+                <td>{{ user_info.profile.gender }}</td>
+            </tr>
+        {% endif %}
+
+        {% if user_info.profile.photo %}
+            <tr>
+                <td>Photo:</td>
+                <td><img src="{{ user_info.profile.photo.url }}"></td>
+            </tr>
+        {% endif %}
+
+
+    </table>
+    {% if user_info == request.user %}
+    {% for user in unread_requests %}
+        <p>{{ user.username }}
+            <a href="{% url "accept_request" user.pk %}" class="btn btn-primary">Accept friend request</a>
+            <a href="{% url "cancel_request" user.pk %}" class="btn btn-primary">Cancel</a>
+        </p>
+    {% endfor %}
+    {% endif %}
+
+    <h4>Friends <span style="font-weight: lighter">{{ friends|length }}</span></h4>
+    <ul style="list-style-type: none">
+        {% for user in friends %}
+            <li><a href="{% url "profile" user.id %}" style="margin-left: -40px">{{ user.username }}</a>
+            {% if user_info == request.user %}
+                <a href="{% url "remove_friend" user.id %}" class="btn btn-primary">Remove</a>
+            {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+
+    <h4>Favorites</h4>
+    <ul style="list-style-type: none">
+    {% for movie in user_info.profile.favorites.all %}
+    <li style="margin-left: -40px">{{ movie }}</li>
+    {% endfor %}
+    </ul>
+
+{% endblock content %}

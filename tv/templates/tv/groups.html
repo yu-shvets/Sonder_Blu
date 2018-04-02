@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+    <p>{{ groups.name }}</p>
+    <p>{{ groups.author }}</p>
+    <p>Created: {{ groups.created }}</p>
+    <p>Movie: {{ groups.movie }}</p>
+    Members:
+    {% for member in groups.invited.all %}
+        <p><a href="{% url "profile" member.id %}">{{ member.username }}</a>
+        </p>
+    {% endfor %}
+
+
+    {% if request.user == groups.author %}
+    <a href="{% url "delete_group" groups.pk %}" class="btn btn-primary">Delete</a>
+    {% elif request.user in groups.invited.all %}
+    <a href="{% url "leave_group" groups.pk %}" class="btn btn-primary">Leave</a>
+    {% else %}
+    <a href="{% url "join_group" groups.pk %}" class="btn btn-primary">Join</a>
+    {% endif %}
+
+    {% if request.user in groups.invited.all or request.user == groups.author %}
+    <p style="margin-top: 50px">
+        <button class="btn btn-primary room-link" data-room-id={{ groups.room.id }}>Chat</button>
+    </p>
+    {% endif %}
+    <div id="chats">
+    </div>
+
+{% endblock content %}
