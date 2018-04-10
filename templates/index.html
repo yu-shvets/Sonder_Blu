@@ -3,494 +3,548 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-	<meta charset="UTF-8">
-	<title>MVP TV</title>
-	<meta name="viewport" content="width=device-width" />
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
-	<link rel="stylesheet" href="{% static "tv/css/screen.css" %}">
+    <meta charset="UTF-8">
+    <title>MVP TV</title>
+    <meta name="viewport" content="width=device-width"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+    <link rel="stylesheet" href="{% static "tv/css/screen.css" %}">
 </head>
 <body>
-	<header class="header">
-		<div class="container">
-			<div class="header-box">
-				<div class="header-logo">
-					<a href="#">
-						<img src="{% static "tv/images/logo.png" %}" alt="placeholder+image">
-					</a>
-				</div>
-				<div class="header-icons">
-					<a href="#" class="header-icons__item item1"></a>
-					<a href="#" class="header-icons__item item2"></a>
-					<a href="#" class="header-icons__item item3"></a>
-					<a href="#" class="header-icons__item item4"></a>
-				</div>
-				<form class="header-serch">
-					<input type="text" name="serch">
-					<button class="header-serch__btn"></button>
-				</form>
-				<div class="header-logIn">
-					<a href="{% url "accounts:auth_login" %}" class="header-logIn__item in">Login</a>
-					<span>|</span>
-					<a href="{% url "accounts:auth_logout" %}" class="header-logIn__item out">Logout</a>
-					<a href="#" class="header-logIn__item set"></a>
-				</div>
-			</div>
-		</div>
-		<a href="#" class="hide-sidebar"></a>
-	</header>
-	<div class="bg-one"></div>
-	<div class="videoWrap">
-		<iframe width="854" height="480" src="https://www.youtube.com/embed/JpuWCQzgQSw?&autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-		<div class="bg"></div>
-	</div>
-	<div class="contentWrap">
-		<div class="container">
-			<div class="container-flex">
-				<div class="sidebar">
-					<div class="sidebar-top">
-						<div class="sidebar-top__box">
-							{% if user.profile.photo %}
-                            <a href="#" class="avatar">
-								<img src="{{ user.profile.photo.url }}" alt="avatar">
-							</a>
-                            {% endif %}
-							<p class="name bell">{{ user.username }}</p>
-						</div>
-						<p class="sidebar-top__text ">
-							Thiiss isi Photoshoip's versssision  Tf Leim Ipuim. Pem Ipuim. Porem Tfh hfd puim. Proiiin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa nisl quis neque. Suspendisse in orci enim.
-						</p>
-					</div>
-					<div class="sidebar-friends accordion-wrap">
-						<h6 class="sidebar-title accordion-title">
-							Friends
-						</h6>
-						<div class="sidebar-friends__box accordion-box">
-							<div class="col-3x">
-								<div class="sidebar-friends__item">
-									<a href="#" class="ava circle">
-										<span class="vase"></span>
-										<img src="{% static "tv/images/joker.png" %}" alt="">
-									</a>
-									<p class="name">
-										Petr Ivanov
-									</p>
-								</div>
-							</div>
-							<div class="col-3x">
-								<div class="sidebar-friends__item">
-									<a href="#" class="ava circle">
-										<span class="vase"></span>
-										<img src="{% static "tv/images/joker.png" %}" alt="">
-									</a>
-									<p class="name">
-										Petr Ivanov
-									</p>
-								</div>
-							</div>
-							<div class="col-3x">
-								<div class="sidebar-friends__item">
-									<a href="#" class="ava circle">
-										<span class="vase"></span>
-										<img src="{% static "tv/images/joker.png" %}" alt="">
-									</a>
-									<p class="name">
-										Petr Ivanov
-									</p>
-								</div>
-							</div>
-							<div class="col-3x">
-								<div class="sidebar-friends__item">
-									<a href="#" class="ava circle">
-										<span class="vase"></span>
-										<img src="{% static "tv/images/joker.png" %}" alt="">
-									</a>
-									<p class="name">
-										Petr Ivanov
-									</p>
-								</div>
-							</div>
-							<div class="col-3x">
-								<div class="sidebar-friends__item">
-									<a href="#" class="ava circle">
-										<span class="vase"></span>
-										<img src="{% static "tv/images/joker.png" %}" alt="">
-									</a>
-									<p class="name">
-										Petr Ivanov
-									</p>
-								</div>
-							</div>
-							<div class="col-3x">
-								<div class="sidebar-friends__item">
-									<a href="#" class="ava circle">
-										<span class="vase"></span>
-										<img src="{% static "tv/images/joker.png" %}" alt="">
-									</a>
-									<p class="name">
-										Petr Ivanov
-									</p>
-								</div>
-							</div>
-							<div class="col-3x">
-								<div class="sidebar-friends__item">
-									<a href="#" class="ava circle">
-										<span class="vase"></span>
-										<img src="{% static "tv/images/joker.png" %}" alt="">
-									</a>
-									<p class="name">
-										Petr Ivanov
-									</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="sidebar-cards">
-						<div class="sidebar-cards__item">
-							<a href="#" data-video='https://www.youtube.com/embed/JpuWCQzgQSw?&autoplay=1'><img src="{% static "tv/images/card1.png" %}" alt=""></a>
-						</div>
-						<div class="sidebar-cards__item">
-							<a href="#" data-video='https://www.youtube.com/embed/3Y83WrmysBY?&autoplay=1'><img src="{% static "tv/images/card2.png" %}" alt=""></a>
-						</div>
-						<div class="sidebar-cards__item">
-							<a href="#" data-video='https://www.youtube.com/embed/ixzGpJnwyxw?&autoplay=1'><img src="{% static "tv/images/card3.png" %}" alt=""></a>
-						</div>
-					</div>
-					<a href="#" class="sidebar-recomend">Recommended friends</a>
-					<div class="sidebar-groups accordion-wrap">
-						<h6 class="sidebar-title accordion-title">
-							Groups
-						</h6>
-						<div class="sidebar-groups__box accordion-box">
-							<div class="col-3x">
-								<div class="sidebar-groups__item">
-									<div class="avatar">
-										<a href="#"><img src="{% static "tv/images/avatar3.png" %}" alt=""></a>
-									</div>
-									<p class="name">
-										Group 1
-									</p>
-								</div>
-							</div>
-							<div class="col-3x">
-								<div class="sidebar-groups__item">
-									<div class="avatar">
-										<a href="#"><img src="{% static "tv/images/avatar3.png" %}" alt=""></a>
-									</div>
-									<p class="name">
-										Group 1
-									</p>
-								</div>
-							</div>
-							<div class="col-3x">
-								<div class="sidebar-groups__item">
-									<div class="avatar">
-										<a href="#"><img src="{% static "tv/images/avatar3.png" %}" alt=""></a>
-									</div>
-									<p class="name">
-										Group 1
-									</p>
-								</div>
-							</div>
-							<div class="col-3x">
-								<div class="sidebar-groups__item">
-									<div class="avatar">
-										<a href="#"><img src="{% static "tv/images/avatar3.png" %}" alt=""></a>
-									</div>
-									<p class="name">
-										Group 1
-									</p>
-								</div>
-							</div>
-							<div class="col-3x">
-								<div class="sidebar-groups__item">
-									<div class="avatar">
-										<a href="#"><img src="{% static "tv/images/avatar3.png" %}" alt=""></a>
-									</div>
-									<p class="name">
-										Group 1
-									</p>
-								</div>
-							</div>
-							<div class="col-3x">
-								<div class="sidebar-groups__item">
-									<div class="avatar">
-										<a href="#"><img src="{% static "tv/images/avatar3.png" %}" alt=""></a>
-									</div>
-									<p class="name">
-										Group 1
-									</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<a href="#" class="sidebar-recomend recomend-groups">Recommended groups</a>
-				</div>
-				<div class="content">
-					<div class="content-left">
-						<div class="sliderWrap">
-							<div class="sliderWrap-slide">
-								<h6 class="sliderWrap-slide__title">
-									This is Photoshop's version Lorem Lorem Ipsum. 
-								</h6>
-								<p class="sliderWrap-slide__text">
-									lorefm quis bibendum auctor, nisi elit consequat ipsum, nec sgittis nlfsibh id eljjoit. Diuis sed odsio sit amet nibh vulpuate cursffus a sit.aukris. Morbi cumsan ipsuim velit. Niam nec tlus
-								</p>
-							</div>
-							<div class="sliderWrap-slide">
-								<h6 class="sliderWrap-slide__title">
-									This is Photoshop's version Lorem Lorem Ipsum. 
-								</h6>
-								<p class="sliderWrap-slide__text">
-									lorefm quis bibendum auctor, nisi elit consequat ipsum, nec sgittis nlfsibh id eljjoit. Diuis sed odsio sit amet nibh vulpuate cursffus a sit.aukris. Morbi cumsan ipsuim velit. Niam nec tlus
-								</p>
-							</div>
-							<div class="sliderWrap-slide">
-								<h6 class="sliderWrap-slide__title">
-									This is Photoshop's version Lorem Lorem Ipsum. 
-								</h6>
-								<p class="sliderWrap-slide__text">
-									lorefm quis bibendum auctor, nisi elit consequat ipsum, nec sgittis nlfsibh id eljjoit. Diuis sed odsio sit amet nibh vulpuate cursffus a sit.aukris. Morbi cumsan ipsuim velit. Niam nec tlus
-								</p>
-							</div>
-						</div>
-						<div class="bannerWrap">
-							<div class="bannerWrap-header">
-								<div class="avatar-ban">
-									<img src="{% static "tv/images/avatar3.png" %}" alt="">
-								</div>
-								<div class="links">
-									<a href="#" class="views links-item">14,4 k views</a>
-									<a href="#" class="likes links-item">10 k likes</a>
-									<a href="#" class="shares links-item">3 k shares</a>
-								</div>
-								<a href="#" class="time"></a>
-							</div>
-							<a href="#"><img src="{% static "tv/images/dp.png" %}" alt=""></a>
-							<h6 class="bannerWrap-title">Title</h6>
-						</div>
-						<div class="newsWrap">
-							<div class="newsWrap-item">
-								<div class="newsWrap-item__avatar">
-									<a href="#">
-										<img src="{% static "tv/images/avatar3.png" %}" alt="">
-									</a>
-								</div>
-								<div class="newsWrap-item__content">
-									<div class="newsWrap-item__body">
-										<h6 class="title">
-											Peter Ivanov
-										</h6>
-										<p class="text">
-											Of Lorem Ipsum. Proin llicit gravida nibh vel velllicitit auctor alquet. Aenan sollicitudin, lorem quis bidsabendum auctor, nisi elit consequat ipsum, nellicitc sagittis sellicitm nibh id elit. Duis sed odio sit.itm nibh id elit. Duis. seendum endum auctor, nisi elit consequat ipsum,auctor, nisi elit cons
-										</p>
-										<p class="soc">
-											<a href="#">Answer</a>
-											<a href="#">Like</a>
-										</p>
-									</div>
-									<div class="newsWrap-item__comentsContainer">
-										<div class="newsWrap-item__comentsWrap">
-											<div class="avatar newsWrap-item__avatar">
-												<a href="#">
-													<img src="{% static "tv/images/avatar2.png" %}" alt="">
-												</a>
-											</div>
-											<div class="comentsBody">
-												<h6 class="title">
-													Peter Ivanov
-												</h6>
-												<p class="text">
-													Of Lorem Ipsum. Proin llicit gravida nibh vel velllicitit auctor alquet. Aenan sollicitudin, lorem quis bidsabendum auctor, nisi elit consequat ipsum, nellicitc sagittis sellicitm nibh id elit. Duis sed odio sit.itm nibh id elit. Duis. seendum endum auctor, nisi elit consequat ipsum,auctor, nisi elit cons
-												</p>
-												<p class="soc">
-													<a href="#">Answer</a>
-													<a href="#">Like</a>
-												</p>
-											</div>
-										</div>
-										<div class="newsWrap-item__comentsWrap">
-											<div class="avatar newsWrap-item__avatar">
-												<a href="#">
-													<img src="{% static "tv/images/avatar3.png" %}" alt="">
-												</a>
-											</div>
-											<div class="comentsBody">
-												<h6 class="title">
-													Peter Ivanov
-												</h6>
-												<p class="text">
-													Of Lorem Ipsum. Proin llicit gravida nibh vel velllicitit auctor alquet. Aenan sollicitudin, lorem quis bidsabendum auctor, nisi elit consequat ipsum, nellicitc sagittis sellicitm nibh id elit. Duis sed odio sit.itm nibh id elit. Duis. seendum endum auctor, nisi elit consequat ipsum,auctor, nisi elit cons
-												</p>
-												<p class="soc">
-													<a href="#">Answer</a>
-													<a href="#">Like</a>
-												</p>
-											</div>
-										</div>
-										<div class="newsWrap-item__comentsWrap">
-											<div class="avatar newsWrap-item__avatar">
-												<a href="#">
-													<img src="{% static "tv/images/avatar4.png" %}" alt="">
-												</a>
-											</div>
-											<div class="comentsBody">
-												<h6 class="title">
-													Peter Ivanov
-												</h6>
-												<p class="text">
-													Of Lorem Ipsum. Proin llicit gravida nibh vel velllicitit auctor alquet. Aenan sollicitudin, lorem quis bidsabendum auctor, nisi elit consequat ipsum, nellicitc sagittis sellicitm nibh id elit. Duis sed odio sit.itm nibh id elit. Duis. seendum endum auctor, nisi elit consequat ipsum,auctor, nisi elit cons
-												</p>
-												<p class="soc">
-													<a href="#">Answer</a>
-													<a href="#">Like</a>
-												</p>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="newsWrap-item">
-								<div class="newsWrap-item__avatar">
-									<a href="#">
-										<img src="{% static "tv/images/avatar3.png" %}" alt="">
-									</a>
-								</div>
-								<div class="newsWrap-item__content">
-									<div class="newsWrap-item__body">
-										<h6 class="title">
-											Peter Ivanov
-										</h6>
-										<p class="text">
-											Of Lorem Ipsum. Proin llicit gravida nibh vel velllicitit auctor alquet. Aenan sollicitudin, lorem quis bidsabendum auctor, nisi elit consequat ipsum, nellicitc sagittis sellicitm nibh id elit. Duis sed odio sit.itm nibh id elit. Duis. seendum endum auctor, nisi elit consequat ipsum,auctor, nisi elit cons
-										</p>
-										<p class="soc">
-											<a href="#">Answer</a>
-											<a href="#">Like</a>
-										</p>
-									</div>
-									<div class="newsWrap-item__comentsContainer">
-										<div class="newsWrap-item__comentsWrap">
-											<div class="avatar newsWrap-item__avatar">
-												<a href="#">
-													<img src="{% static "tv/images/avatar3.png" %}" alt="">
-												</a>
-											</div>
-											<div class="comentsBody">
-												<h6 class="title">
-													Peter Ivanov
-												</h6>
-												<p class="text">
-													Of Lorem Ipsum. Proin llicit gravida nibh vel velllicitit auctor alquet. Aenan sollicitudin, lorem quis bidsabendum auctor, nisi elit consequat ipsum, nellicitc sagittis sellicitm nibh id elit. Duis sed odio sit.itm nibh id elit. Duis. seendum endum auctor, nisi elit consequat ipsum,auctor, nisi elit cons
-												</p>
-												<p class="soc">
-													<a href="#">Answer</a>
-													<a href="#">Like</a>
-												</p>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<form class="formCom">
-							<input type="text" name="comment" class="comment" placeholder="Write a comment...">
-							<a href="#" class="smile"></a>
-							<label class="foto file-container"><input type="file" name="foto"></label>
-							<label class="file file-container"><input type="file" name="file"></label>
-						</form>
-					</div>
-					<div class="content-rgt" style="display: none;">
-						<div class="chatWrap">
-							<div class="chatWrap-top clearfix">
-								<div class="chatWrap-top__line"></div>
-								<a href="#" class="chatWrap-top__arr"></a>
-							</div>
-							<div class="chatWrap-head">
-								<a href="#">Private</a>
-								<span>|</span>
-								<a href="#">Groups</a>
-							</div>
-							<div class="chatWrap-items">
-								<div class="chatWrap-messBox clearfix">
-									<div class="chatWrap-messBox__avatar">
-										<a href="#">
-											<img src="{% static "tv/images/avatar3.png" %}" alt="">
-										</a>
-									</div>
-									<div class="chatWrap-messBox__text">
-										<h6 class="title">Peter Ivanov </h6>
-										<p class="mess">
-											Did this is Photo version hop's verve on hop's v rsion version s Of Lorem Ipsum. Proin llicit gravida nibh vel velllicitit auctor alquet. 
-										</p>
-									</div>
-								</div>
-								<div class="chatWrap-messBox clearfix">
-									<div class="chatWrap-messBox__avatar">
-										<a href="#">
-											<img src="{% static "tv/images/avatar3.png" %}" alt="">
-										</a>
-									</div>
-									<div class="chatWrap-messBox__text">
-										<h6 class="title">Peter Ivanov </h6>
-										<p class="mess">
-											Did this is Photo version hop's verve on hop's v rsion version s Of Lorem Ipsum. Proin llicit gravida nibh vel velllicitit auctor alquet. 
-										</p>
-									</div>
-								</div>
-								<div class="chatWrap-messBox clearfix">
-									<div class="chatWrap-messBox__avatar">
-										<a href="#">
-											<img src="{% static "tv/images/avatar3.png" %}" alt="">
-										</a>
-									</div>
-									<div class="chatWrap-messBox__text">
-										<h6 class="title">Peter Ivanov </h6>
-										<p class="mess">
-											Did this is Photo version hop's verve on hop's v rsion version s Of Lorem Ipsum. Proin llicit gravida nibh vel velllicitit auctor alquet. 
-										</p>
-									</div>
-								</div>
-								<div class="chatWrap-messBox clearfix">
-									<div class="chatWrap-messBox__avatar">
-										<a href="#">
-											<img src="{% static "tv/images/avatar3.png" %}" alt="">
-										</a>
-									</div>
-									<div class="chatWrap-messBox__text">
-										<h6 class="title">Peter Ivanov </h6>
-										<p class="mess">
-											Did this is Photo version hop's verve on hop's v rsion version s Of Lorem Ipsum. Proin llicit gravida nibh vel velllicitit auctor alquet. 
-										</p>
-									</div>
-								</div>
-								<div class="chatWrap-messBox clearfix">
-									<div class="chatWrap-messBox__avatar">
-										<a href="#">
-											<img src="{% static "tv/images/avatar3.png" %}" alt="">
-										</a>
-									</div>
-									<div class="chatWrap-messBox__text">
-										<h6 class="title">Peter Ivanov </h6>
-										<p class="mess">
-											Did this is Photo version hop's verve on hop's v rsion version s Of Lorem Ipsum. Proin llicit gravida nibh vel velllicitit auctor alquet. 
-										</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<a href="#" class="open-chat"></a>
-				</div>
-			</div>
-		</div>
-	</div>
+<header class="header">
+    <div class="container">
+        <div class="header-box">
+            <div class="header-logo">
+                <a href="#">
+                    <img src="{% static "tv/images/logo.png" %}" alt="placeholder+image">
+                </a>
+            </div>
+            <div class="header-icons">
+                <a href="#" class="header-icons__item item1"></a>
+                <a href="#" class="header-icons__item item2"></a>
+                <a href="#" class="header-icons__item item3"></a>
+                <a href="#" class="header-icons__item item4"></a>
+            </div>
+            <form class="header-serch">
+                <input type="text" name="serch">
+                <button class="header-serch__btn"></button>
+            </form>
+            {#                <a href="{% url 'search_view' %}">Search</a>#}
+            <div class="header-logIn">
+                <a href="{% url "accounts:auth_login" %}" class="header-logIn__item in">Login</a>
+                <span>|</span>
+                <a href="{% url "accounts:auth_logout" %}" class="header-logIn__item out">Logout</a>
+                <a href="#" class="header-logIn__item set"></a>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="hide-sidebar"></a>
+</header>
 
-	<script src="{% static "tv/js/jquery-3.2.1.min.js" %}"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-	<script src="{% static "tv/js/js.js" %}"></script>
+{% block content %}
+    <div class="bg-one"></div>
+    <div class="videoWrap">
+        <iframe width="854" height="480" src="https://www.youtube.com/embed/JpuWCQzgQSw?&autoplay=1" frameborder="0"
+                allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <div class="bg"></div>
+    </div>
+    <div class="contentWrap">
+        <div class="container">
+            <div class="container-flex">
+                <div class="sidebar">
+                    <div class="sidebar-top">
+                        <div class="sidebar-top__box">
+                            {% if user.profile.photo %}
+                                <a href="#" class="avatar">
+                                    <img src="{{ user.profile.photo.url }}" alt="avatar">
+                                </a>
+                            {% endif %}
+                            <p class="name bell">{{ user.username }}</p>
+                        </div>
+                        <p class="sidebar-top__text ">
+                            Thiiss isi Photoshoip's versssision Tf Leim Ipuim. Pem Ipuim. Porem Tfh hfd puim. Proiiin
+                            gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi
+                            elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate
+                            cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor
+                            a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti
+                            sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat
+                            justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed
+                            ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum
+                            feugiat, velit mauris egestas quam, ut aliquam massa nisl quis neque. Suspendisse in orci
+                            enim.
+                        </p>
+                    </div>
+                    <div class="sidebar-friends accordion-wrap">
+                        <h6 class="sidebar-title accordion-title">
+                            Friends
+                        </h6>
+                        <div class="sidebar-friends__box accordion-box">
+                            <div class="col-3x">
+                                <div class="sidebar-friends__item">
+                                    <a href="#" class="ava circle">
+                                        <span class="vase"></span>
+                                        <img src="{% static "tv/images/joker.png" %}" alt="">
+                                    </a>
+                                    <p class="name">
+                                        Petr Ivanov
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-3x">
+                                <div class="sidebar-friends__item">
+                                    <a href="#" class="ava circle">
+                                        <span class="vase"></span>
+                                        <img src="{% static "tv/images/joker.png" %}" alt="">
+                                    </a>
+                                    <p class="name">
+                                        Petr Ivanov
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-3x">
+                                <div class="sidebar-friends__item">
+                                    <a href="#" class="ava circle">
+                                        <span class="vase"></span>
+                                        <img src="{% static "tv/images/joker.png" %}" alt="">
+                                    </a>
+                                    <p class="name">
+                                        Petr Ivanov
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-3x">
+                                <div class="sidebar-friends__item">
+                                    <a href="#" class="ava circle">
+                                        <span class="vase"></span>
+                                        <img src="{% static "tv/images/joker.png" %}" alt="">
+                                    </a>
+                                    <p class="name">
+                                        Petr Ivanov
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-3x">
+                                <div class="sidebar-friends__item">
+                                    <a href="#" class="ava circle">
+                                        <span class="vase"></span>
+                                        <img src="{% static "tv/images/joker.png" %}" alt="">
+                                    </a>
+                                    <p class="name">
+                                        Petr Ivanov
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-3x">
+                                <div class="sidebar-friends__item">
+                                    <a href="#" class="ava circle">
+                                        <span class="vase"></span>
+                                        <img src="{% static "tv/images/joker.png" %}" alt="">
+                                    </a>
+                                    <p class="name">
+                                        Petr Ivanov
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-3x">
+                                <div class="sidebar-friends__item">
+                                    <a href="#" class="ava circle">
+                                        <span class="vase"></span>
+                                        <img src="{% static "tv/images/joker.png" %}" alt="">
+                                    </a>
+                                    <p class="name">
+                                        Petr Ivanov
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sidebar-cards">
+                        <div class="sidebar-cards__item">
+                            <a href="#" data-video='https://www.youtube.com/embed/JpuWCQzgQSw?&autoplay=1'><img
+                                    src="{% static "tv/images/card1.png" %}" alt=""></a>
+                        </div>
+                        <div class="sidebar-cards__item">
+                            <a href="#" data-video='https://www.youtube.com/embed/3Y83WrmysBY?&autoplay=1'><img
+                                    src="{% static "tv/images/card2.png" %}" alt=""></a>
+                        </div>
+                        <div class="sidebar-cards__item">
+                            <a href="#" data-video='https://www.youtube.com/embed/ixzGpJnwyxw?&autoplay=1'><img
+                                    src="{% static "tv/images/card3.png" %}" alt=""></a>
+                        </div>
+                    </div>
+                    <a href="#" class="sidebar-recomend">Recommended friends</a>
+                    <div class="sidebar-groups accordion-wrap">
+                        <h6 class="sidebar-title accordion-title">
+                            Groups
+                        </h6>
+                        <div class="sidebar-groups__box accordion-box">
+                            <div class="col-3x">
+                                <div class="sidebar-groups__item">
+                                    <div class="avatar">
+                                        <a href="#"><img src="{% static "tv/images/avatar3.png" %}" alt=""></a>
+                                    </div>
+                                    <p class="name">
+                                        Group 1
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-3x">
+                                <div class="sidebar-groups__item">
+                                    <div class="avatar">
+                                        <a href="#"><img src="{% static "tv/images/avatar3.png" %}" alt=""></a>
+                                    </div>
+                                    <p class="name">
+                                        Group 1
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-3x">
+                                <div class="sidebar-groups__item">
+                                    <div class="avatar">
+                                        <a href="#"><img src="{% static "tv/images/avatar3.png" %}" alt=""></a>
+                                    </div>
+                                    <p class="name">
+                                        Group 1
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-3x">
+                                <div class="sidebar-groups__item">
+                                    <div class="avatar">
+                                        <a href="#"><img src="{% static "tv/images/avatar3.png" %}" alt=""></a>
+                                    </div>
+                                    <p class="name">
+                                        Group 1
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-3x">
+                                <div class="sidebar-groups__item">
+                                    <div class="avatar">
+                                        <a href="#"><img src="{% static "tv/images/avatar3.png" %}" alt=""></a>
+                                    </div>
+                                    <p class="name">
+                                        Group 1
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-3x">
+                                <div class="sidebar-groups__item">
+                                    <div class="avatar">
+                                        <a href="#"><img src="{% static "tv/images/avatar3.png" %}" alt=""></a>
+                                    </div>
+                                    <p class="name">
+                                        Group 1
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="sidebar-recomend recomend-groups">Recommended groups</a>
+                </div>
+
+                <div class="content">
+                    <div class="content-left">
+                        <div class="sliderWrap">
+                            <div class="sliderWrap-slide">
+                                <h6 class="sliderWrap-slide__title">
+                                    This is Photoshop's version Lorem Lorem Ipsum.
+                                </h6>
+                                <p class="sliderWrap-slide__text">
+                                    lorefm quis bibendum auctor, nisi elit consequat ipsum, nec sgittis nlfsibh id
+                                    eljjoit. Diuis sed odsio sit amet nibh vulpuate cursffus a sit.aukris. Morbi cumsan
+                                    ipsuim velit. Niam nec tlus
+                                </p>
+                            </div>
+                            <div class="sliderWrap-slide">
+                                <h6 class="sliderWrap-slide__title">
+                                    This is Photoshop's version Lorem Lorem Ipsum.
+                                </h6>
+                                <p class="sliderWrap-slide__text">
+                                    lorefm quis bibendum auctor, nisi elit consequat ipsum, nec sgittis nlfsibh id
+                                    eljjoit. Diuis sed odsio sit amet nibh vulpuate cursffus a sit.aukris. Morbi cumsan
+                                    ipsuim velit. Niam nec tlus
+                                </p>
+                            </div>
+                            <div class="sliderWrap-slide">
+                                <h6 class="sliderWrap-slide__title">
+                                    This is Photoshop's version Lorem Lorem Ipsum.
+                                </h6>
+                                <p class="sliderWrap-slide__text">
+                                    lorefm quis bibendum auctor, nisi elit consequat ipsum, nec sgittis nlfsibh id
+                                    eljjoit. Diuis sed odsio sit amet nibh vulpuate cursffus a sit.aukris. Morbi cumsan
+                                    ipsuim velit. Niam nec tlus
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bannerWrap">
+                            <div class="bannerWrap-header">
+                                <div class="avatar-ban">
+                                    <img src="{% static "tv/images/avatar3.png" %}" alt="">
+                                </div>
+                                <div class="links">
+                                    <a href="#" class="views links-item">14,4 k views</a>
+                                    <a href="#" class="likes links-item">10 k likes</a>
+                                    <a href="#" class="shares links-item">3 k shares</a>
+                                </div>
+                                <a href="#" class="time"></a>
+                            </div>
+                            <a href="#"><img src="{% static "tv/images/dp.png" %}" alt=""></a>
+                            <h6 class="bannerWrap-title">Title</h6>
+                        </div>
+                        <div class="newsWrap">
+                            <div class="newsWrap-item">
+                                <div class="newsWrap-item__avatar">
+                                    <a href="#">
+                                        <img src="{% static "tv/images/avatar3.png" %}" alt="">
+                                    </a>
+                                </div>
+                                <div class="newsWrap-item__content">
+                                    <div class="newsWrap-item__body">
+                                        <h6 class="title">
+                                            Peter Ivanov
+                                        </h6>
+                                        <p class="text">
+                                            Of Lorem Ipsum. Proin llicit gravida nibh vel velllicitit auctor alquet.
+                                            Aenan sollicitudin, lorem quis bidsabendum auctor, nisi elit consequat
+                                            ipsum, nellicitc sagittis sellicitm nibh id elit. Duis sed odio sit.itm nibh
+                                            id elit. Duis. seendum endum auctor, nisi elit consequat ipsum,auctor, nisi
+                                            elit cons
+                                        </p>
+                                        <p class="soc">
+                                            <a href="#">Answer</a>
+                                            <a href="#">Like</a>
+                                        </p>
+                                    </div>
+                                    <div class="newsWrap-item__comentsContainer">
+                                        <div class="newsWrap-item__comentsWrap">
+                                            <div class="avatar newsWrap-item__avatar">
+                                                <a href="#">
+                                                    <img src="{% static "tv/images/avatar2.png" %}" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="comentsBody">
+                                                <h6 class="title">
+                                                    Peter Ivanov
+                                                </h6>
+                                                <p class="text">
+                                                    Of Lorem Ipsum. Proin llicit gravida nibh vel velllicitit auctor
+                                                    alquet. Aenan sollicitudin, lorem quis bidsabendum auctor, nisi elit
+                                                    consequat ipsum, nellicitc sagittis sellicitm nibh id elit. Duis sed
+                                                    odio sit.itm nibh id elit. Duis. seendum endum auctor, nisi elit
+                                                    consequat ipsum,auctor, nisi elit cons
+                                                </p>
+                                                <p class="soc">
+                                                    <a href="#">Answer</a>
+                                                    <a href="#">Like</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="newsWrap-item__comentsWrap">
+                                            <div class="avatar newsWrap-item__avatar">
+                                                <a href="#">
+                                                    <img src="{% static "tv/images/avatar3.png" %}" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="comentsBody">
+                                                <h6 class="title">
+                                                    Peter Ivanov
+                                                </h6>
+                                                <p class="text">
+                                                    Of Lorem Ipsum. Proin llicit gravida nibh vel velllicitit auctor
+                                                    alquet. Aenan sollicitudin, lorem quis bidsabendum auctor, nisi elit
+                                                    consequat ipsum, nellicitc sagittis sellicitm nibh id elit. Duis sed
+                                                    odio sit.itm nibh id elit. Duis. seendum endum auctor, nisi elit
+                                                    consequat ipsum,auctor, nisi elit cons
+                                                </p>
+                                                <p class="soc">
+                                                    <a href="#">Answer</a>
+                                                    <a href="#">Like</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="newsWrap-item__comentsWrap">
+                                            <div class="avatar newsWrap-item__avatar">
+                                                <a href="#">
+                                                    <img src="{% static "tv/images/avatar4.png" %}" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="comentsBody">
+                                                <h6 class="title">
+                                                    Peter Ivanov
+                                                </h6>
+                                                <p class="text">
+                                                    Of Lorem Ipsum. Proin llicit gravida nibh vel velllicitit auctor
+                                                    alquet. Aenan sollicitudin, lorem quis bidsabendum auctor, nisi elit
+                                                    consequat ipsum, nellicitc sagittis sellicitm nibh id elit. Duis sed
+                                                    odio sit.itm nibh id elit. Duis. seendum endum auctor, nisi elit
+                                                    consequat ipsum,auctor, nisi elit cons
+                                                </p>
+                                                <p class="soc">
+                                                    <a href="#">Answer</a>
+                                                    <a href="#">Like</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="newsWrap-item">
+                                <div class="newsWrap-item__avatar">
+                                    <a href="#">
+                                        <img src="{% static "tv/images/avatar3.png" %}" alt="">
+                                    </a>
+                                </div>
+                                <div class="newsWrap-item__content">
+                                    <div class="newsWrap-item__body">
+                                        <h6 class="title">
+                                            Peter Ivanov
+                                        </h6>
+                                        <p class="text">
+                                            Of Lorem Ipsum. Proin llicit gravida nibh vel velllicitit auctor alquet.
+                                            Aenan sollicitudin, lorem quis bidsabendum auctor, nisi elit consequat
+                                            ipsum, nellicitc sagittis sellicitm nibh id elit. Duis sed odio sit.itm nibh
+                                            id elit. Duis. seendum endum auctor, nisi elit consequat ipsum,auctor, nisi
+                                            elit cons
+                                        </p>
+                                        <p class="soc">
+                                            <a href="#">Answer</a>
+                                            <a href="#">Like</a>
+                                        </p>
+                                    </div>
+                                    <div class="newsWrap-item__comentsContainer">
+                                        <div class="newsWrap-item__comentsWrap">
+                                            <div class="avatar newsWrap-item__avatar">
+                                                <a href="#">
+                                                    <img src="{% static "tv/images/avatar3.png" %}" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="comentsBody">
+                                                <h6 class="title">
+                                                    Peter Ivanov
+                                                </h6>
+                                                <p class="text">
+                                                    Of Lorem Ipsum. Proin llicit gravida nibh vel velllicitit auctor
+                                                    alquet. Aenan sollicitudin, lorem quis bidsabendum auctor, nisi elit
+                                                    consequat ipsum, nellicitc sagittis sellicitm nibh id elit. Duis sed
+                                                    odio sit.itm nibh id elit. Duis. seendum endum auctor, nisi elit
+                                                    consequat ipsum,auctor, nisi elit cons
+                                                </p>
+                                                <p class="soc">
+                                                    <a href="#">Answer</a>
+                                                    <a href="#">Like</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <form class="formCom">
+                            <input type="text" name="comment" class="comment" placeholder="Write a comment...">
+                            <a href="#" class="smile"></a>
+                            <label class="foto file-container"><input type="file" name="foto"></label>
+                            <label class="file file-container"><input type="file" name="file"></label>
+                        </form>
+                    </div>
+                    <div class="content-rgt" style="display: none;">
+                        <div class="chatWrap">
+                            <div class="chatWrap-top clearfix">
+                                <div class="chatWrap-top__line"></div>
+                                <a href="#" class="chatWrap-top__arr"></a>
+                            </div>
+                            <div class="chatWrap-head">
+                                <a href="#">Private</a>
+                                <span>|</span>
+                                <a href="#">Groups</a>
+                            </div>
+                            <div class="chatWrap-items">
+                                <div class="chatWrap-messBox clearfix">
+                                    <div class="chatWrap-messBox__avatar">
+                                        <a href="#">
+                                            <img src="{% static "tv/images/avatar3.png" %}" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="chatWrap-messBox__text">
+                                        <h6 class="title">Peter Ivanov </h6>
+                                        <p class="mess">
+                                            Did this is Photo version hop's verve on hop's v rsion version s Of Lorem
+                                            Ipsum. Proin llicit gravida nibh vel velllicitit auctor alquet.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="chatWrap-messBox clearfix">
+                                    <div class="chatWrap-messBox__avatar">
+                                        <a href="#">
+                                            <img src="{% static "tv/images/avatar3.png" %}" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="chatWrap-messBox__text">
+                                        <h6 class="title">Peter Ivanov </h6>
+                                        <p class="mess">
+                                            Did this is Photo version hop's verve on hop's v rsion version s Of Lorem
+                                            Ipsum. Proin llicit gravida nibh vel velllicitit auctor alquet.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="chatWrap-messBox clearfix">
+                                    <div class="chatWrap-messBox__avatar">
+                                        <a href="#">
+                                            <img src="{% static "tv/images/avatar3.png" %}" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="chatWrap-messBox__text">
+                                        <h6 class="title">Peter Ivanov </h6>
+                                        <p class="mess">
+                                            Did this is Photo version hop's verve on hop's v rsion version s Of Lorem
+                                            Ipsum. Proin llicit gravida nibh vel velllicitit auctor alquet.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="chatWrap-messBox clearfix">
+                                    <div class="chatWrap-messBox__avatar">
+                                        <a href="#">
+                                            <img src="{% static "tv/images/avatar3.png" %}" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="chatWrap-messBox__text">
+                                        <h6 class="title">Peter Ivanov </h6>
+                                        <p class="mess">
+                                            Did this is Photo version hop's verve on hop's v rsion version s Of Lorem
+                                            Ipsum. Proin llicit gravida nibh vel velllicitit auctor alquet.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="chatWrap-messBox clearfix">
+                                    <div class="chatWrap-messBox__avatar">
+                                        <a href="#">
+                                            <img src="{% static "tv/images/avatar3.png" %}" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="chatWrap-messBox__text">
+                                        <h6 class="title">Peter Ivanov </h6>
+                                        <p class="mess">
+                                            Did this is Photo version hop's verve on hop's v rsion version s Of Lorem
+                                            Ipsum. Proin llicit gravida nibh vel velllicitit auctor alquet.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="{% url "multichat" %}" class="open-chat"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+<script src="{% static "tv/js/jquery-3.2.1.min.js" %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+<script src="{% static "tv/js/js.js" %}"></script>
 </body>
 </html>

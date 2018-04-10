@@ -21,7 +21,7 @@ from django.conf.urls.static import static
 from tv.views import HomeView, search, like, send_request, accept_request, cancel_request, remove_friend, profile, \
     GroupFormView, GroupCreateView, GroupDetailView, join_group, leave_group, delete_group, FeedbackCreateView, \
     ReviewCreateView, search_movies, search_people, add_favorite, CategoryFilterView, ReviewUpdateView, user_edit, \
-    UpdateFormView
+    UpdateFormView, SearchView
 from chat.views import IndexView
 from multichat.views import multichat_view
 from feed.views import feed_view, PostCreateView, CommentCreateView, post_like, AnswerCreateView, comment_like, \
@@ -36,6 +36,8 @@ from registration.backends.default.views import ActivationView, RegistrationView
 
 urlpatterns = [
     url(r'^$', HomeView.as_view(), name='home'),
+    url(r'^search_view/$', SearchView.as_view(), name='search_view'),
+
     url(r'^search/$', search, name='search'),
     url(r'^like/$', like, name='like'),
     url(r'^send_request/(?P<user_id>\d+)/$', send_request, name='send_request'),
