@@ -19,8 +19,8 @@
 		<div class="container">
 			<div class="header-box">
 				<div class="header-logo">
-					<a href="#">
-						<img src="images/logo.png" alt="placeholder+image">
+					<a href="{% url 'home' %}">
+						<img src="{% static "tv/images/logo.png" %}" alt="placeholder+image">
 					</a>
 				</div>
 				<div class="header-icons">
@@ -34,11 +34,12 @@
 					<button class="header-serch__btn"></button>
 				</form>
 				<div class="header-logIn">
-					<a href="#" class="header-logIn__item in">Login</a>
-					<span>|</span>
-					<a href="#" class="header-logIn__item out">Logout</a>
-					<a href="#" class="header-logIn__item set"></a>
-				</div>
+                <a class="header-logIn__item in" href="{% url 'search_view' %}">Search</a>
+                <a href="{% url "accounts:auth_login" %}" class="header-logIn__item in">Login</a>
+                <span>|</span>
+                <a href="{% url "accounts:auth_logout" %}" class="header-logIn__item out">Logout</a>
+                <a href="#" class="header-logIn__item set"></a>
+            </div>
 			</div>
 		</div>
 		<a href="#" class="hide-sidebar"></a>
@@ -67,7 +68,7 @@
 								<div class="sidebar-friends__item">
 									<a href="#" class="ava circle">
 										<span class="vase"></span>
-										<img src="images/avatar2.png" alt="">
+										<img src="{% static "tv/images/avatar2.png" %}" alt="">
 									</a>
 									<p class="name">
 										Petr Ivanov
@@ -78,7 +79,7 @@
 								<div class="sidebar-friends__item">
 									<a href="#" class="ava circle">
 										<span class="vase"></span>
-										<img src="images/avatar2.png" alt="">
+										<img src="{% static "tv/images/avatar2.png" %}" alt="">
 									</a>
 									<p class="name">
 										Petr Ivanov
@@ -89,7 +90,7 @@
 								<div class="sidebar-friends__item">
 									<a href="#" class="ava circle">
 										<span class="vase"></span>
-										<img src="images/avatar2.png" alt="">
+										<img src="{% static "tv/images/avatar2.png" %}" alt="">
 									</a>
 									<p class="name">
 										Petr Ivanov
@@ -100,7 +101,7 @@
 								<div class="sidebar-friends__item">
 									<a href="#" class="ava circle">
 										<span class="vase"></span>
-										<img src="images/avatar2.png" alt="">
+										<img src="{% static "tv/images/avatar2.png" %}" alt="">
 									</a>
 									<p class="name">
 										Petr Ivanov
@@ -111,7 +112,7 @@
 								<div class="sidebar-friends__item">
 									<a href="#" class="ava circle">
 										<span class="vase"></span>
-										<img src="images/avatar2.png" alt="">
+										<img src="{% static "tv/images/avatar2.png" %}" alt="">
 									</a>
 									<p class="name">
 										Petr Ivanov
@@ -122,7 +123,7 @@
 								<div class="sidebar-friends__item">
 									<a href="#" class="ava circle">
 										<span class="vase"></span>
-										<img src="images/avatar2.png" alt="">
+										<img src="{% static "tv/images/avatar2.png" %}" alt="">
 									</a>
 									<p class="name">
 										Petr Ivanov
@@ -133,7 +134,7 @@
 								<div class="sidebar-friends__item">
 									<a href="#" class="ava circle">
 										<span class="vase"></span>
-										<img src="images/avatar2.png" alt="">
+										<img src="{% static "tv/images/avatar2.png" %}" alt="">
 									</a>
 									<p class="name">
 										Petr Ivanov
@@ -260,7 +261,7 @@
 											<div class="chatWrap-messBox clearfix">
 												<div class="chatWrap-messBox__avatar">
 													<a href="#">
-														<img src="images/avatar3.png" alt="">
+														<img src="{% static "tv/images/avatar3.png" %}" alt="">
 													</a>
 												</div>
 												<div class="chatWrap-messBox__text">
@@ -273,7 +274,7 @@
 											<div class="chatWrap-messBox clearfix">
 												<div class="chatWrap-messBox__avatar">
 													<a href="#">
-														<img src="images/avatar3.png" alt="">
+														<img src="{% static "tv/images/avatar3.png" %}" alt="">
 													</a>
 												</div>
 												<div class="chatWrap-messBox__text">
@@ -286,7 +287,7 @@
 											<div class="chatWrap-messBox clearfix">
 												<div class="chatWrap-messBox__avatar">
 													<a href="#">
-														<img src="images/avatar3.png" alt="">
+														<img src="{% static "tv/images/avatar3.png" %}" alt="">
 													</a>
 												</div>
 												<div class="chatWrap-messBox__text">
@@ -299,7 +300,7 @@
 											<div class="chatWrap-messBox clearfix">
 												<div class="chatWrap-messBox__avatar">
 													<a href="#">
-														<img src="images/avatar3.png" alt="">
+														<img src="{% static "tv/images/avatar3.png" %}" alt="">
 													</a>
 												</div>
 												<div class="chatWrap-messBox__text">
@@ -312,7 +313,7 @@
 											<div class="chatWrap-messBox clearfix">
 												<div class="chatWrap-messBox__avatar">
 													<a href="#">
-														<img src="images/avatar3.png" alt="">
+														<img src="{% static "tv/images/avatar3.png" %}" alt="">
 													</a>
 												</div>
 												<div class="chatWrap-messBox__text">
@@ -350,7 +351,7 @@
 								<div class="chatWrap-messBox clearfix">
 									<div class="chatWrap-messBox__avatar">
 										<a href="#">
-											<img src="images/avatar3.png" alt="">
+											<img src="{% static "tv/images/avatar3.png" %}" alt="">
 										</a>
 									</div>
 									<div class="chatWrap-messBox__text">
@@ -363,7 +364,7 @@
 								<div class="chatWrap-messBox clearfix">
 									<div class="chatWrap-messBox__avatar">
 										<a href="#">
-											<img src="images/avatar3.png" alt="">
+											<img src="{% static "tv/images/avatar3.png" %}" alt="">
 										</a>
 									</div>
 									<div class="chatWrap-messBox__text">
@@ -376,7 +377,7 @@
 								<div class="chatWrap-messBox clearfix">
 									<div class="chatWrap-messBox__avatar">
 										<a href="#">
-											<img src="images/avatar3.png" alt="">
+											<img src="{% static "tv/images/avatar3.png" %}" alt="">
 										</a>
 									</div>
 									<div class="chatWrap-messBox__text">
@@ -389,7 +390,7 @@
 								<div class="chatWrap-messBox clearfix">
 									<div class="chatWrap-messBox__avatar">
 										<a href="#">
-											<img src="images/avatar3.png" alt="">
+											<img src="{% static "tv/images/avatar3.png" %}" alt="">
 										</a>
 									</div>
 									<div class="chatWrap-messBox__text">
@@ -402,7 +403,7 @@
 								<div class="chatWrap-messBox clearfix">
 									<div class="chatWrap-messBox__avatar">
 										<a href="#">
-											<img src="images/avatar3.png" alt="">
+											<img src="{% static "tv/images/avatar3.png" %}" alt="">
 										</a>
 									</div>
 									<div class="chatWrap-messBox__text">

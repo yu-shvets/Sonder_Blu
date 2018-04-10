@@ -27,7 +27,7 @@ $(function () {
             console.log("Joining room " + data.join);
             var roomdiv = $(
                 "<div class='room' id='room-" + data.join + "'>" +
-                "<h2>" + data.title + "</h2>" +
+                // "<h2>" + data.title + "</h2>" +
                 "<div class='messages'></div>" +
                 "<input><button>Send</button>" +
                 "</div>"
@@ -54,7 +54,7 @@ $(function () {
                 case 0:
                     // Message
                     ok_msg = "<div class='message'>" +
-                        "<span class='username'>" + data.username + "</span>" +
+                        "<span class='username'>" + data.username + ' ' + "</span>" +
                         "<span class='body'>" + data.message + "</span>" +
                         "</div>";
                     break;

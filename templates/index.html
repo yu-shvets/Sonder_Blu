@@ -18,7 +18,7 @@
     <div class="container">
         <div class="header-box">
             <div class="header-logo">
-                <a href="#">
+                <a href="{% url 'home' %}">
                     <img src="{% static "tv/images/logo.png" %}" alt="placeholder+image">
                 </a>
             </div>
@@ -32,8 +32,10 @@
                 <input type="text" name="serch">
                 <button class="header-serch__btn"></button>
             </form>
-            {#                <a href="{% url 'search_view' %}">Search</a>#}
+
+
             <div class="header-logIn">
+                <a class="header-logIn__item in" href="{% url 'search_view' %}">Search</a>
                 <a href="{% url "accounts:auth_login" %}" class="header-logIn__item in">Login</a>
                 <span>|</span>
                 <a href="{% url "accounts:auth_logout" %}" class="header-logIn__item out">Logout</a>
@@ -292,7 +294,7 @@
                                 </div>
                                 <a href="#" class="time"></a>
                             </div>
-                            <a href="#"><img src="{% static "tv/images/dp.png" %}" alt=""></a>
+                            <a href="{% url 'film_view' %}"><img src="{% static "tv/images/dp.png" %}" alt=""></a>
                             <h6 class="bannerWrap-title">Title</h6>
                         </div>
                         <div class="newsWrap">
@@ -456,6 +458,9 @@
                                 <div class="chatWrap-top__line"></div>
                                 <a href="#" class="chatWrap-top__arr"></a>
                             </div>
+                            <button class="room-link" data-room-id=1>Chat</button>
+                            <div id="chats">
+                            </div>
                             <div class="chatWrap-head">
                                 <a href="#">Private</a>
                                 <span>|</span>
@@ -535,7 +540,10 @@
                             </div>
                         </div>
                     </div>
-                    <a href="{% url "multichat" %}" class="open-chat"></a>
+                   <a href="{% url "multichat" %}" class="open-chat room-link"></a>
+
+{#                    <p><a href="{% url "multichat" %}" class="btn btn-default" style="color: white">Multichat</a></p>#}
+
                 </div>
             </div>
         </div>
@@ -546,5 +554,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 <script src="{% static "tv/js/js.js" %}"></script>
+<script type="text/javascript" src='{% static "multichat/js/multichat.js" %}'></script>
+<script type="text/javascript" src='{% static "multichat/js/reconnecting-websocket.min.js" %}'></script>
 </body>
 </html>
