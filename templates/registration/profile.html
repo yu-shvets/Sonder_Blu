@@ -32,8 +32,10 @@
             </tr>
         {% endif %}
 
-
     </table>
+
+    <a href="{% url 'update_form' %}" class="btn btn-primary">Edit profile</a>
+
     {% if user_info == request.user %}
     {% for user in unread_requests %}
         <p>{{ user.username }}
@@ -48,7 +50,12 @@
         {% for user in friends %}
             <li><a href="{% url "profile" user.id %}" style="margin-left: -40px">{{ user.username }}</a>
             {% if user_info == request.user %}
-                <a href="{% url "remove_friend" user.id %}" class="btn btn-primary">Remove</a>
+                <a style="margin-bottom: 10px" href="{% url "remove_friend" user.id %}" class="btn btn-primary">Remove</a>
+                <form style="margin-bottom: 10px" action="{% url "message_create" user.id %}" method="post">
+                    {% csrf_token %}
+                    {{ messageform.as_p }}
+                <input type="submit" value="Send message" />
+                </form>
             {% endif %}
             </li>
         {% endfor %}

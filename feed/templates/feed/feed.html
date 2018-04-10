@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load mptt_tags %}
+
+
+{% block content %}
+
+    {% if new_messages %}
+        <p>New messages:</p>
+        {% for message in new_messages %}
+            <a href="{% url 'open_message' message.id %}">See message</a> from {{ message.from_user }}
+        {% endfor %}
+        <hr>
+    {% endif %}
+
+    {% if read_messages %}
+        <p>Read messages:</p>
+        {% for message in read_messages %}
+            <a href="{% url 'open_message' message.id %}">See message</a> from {{ message.from_user }}
+        {% endfor %}
+        <hr>
+    {% endif %}
+
+    <form action="{% url "create_post" %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ postform.as_p }}
+        <input type="submit" value="New post" />
+    </form>
+
+    <hr>
+
+    {% for post in feed.posts.all %}
+        <p>{{ post.user }}</p>
+        {% if post.picture %}<p><img src="{{ post.picture.url }}"></p>{% endif %}
+        <p>{{ post.content }}</p>
+
+        <a href="{% url 'post_like' %}" data-id="{{ post.id }}"
+                              class="btn btn-primary post_like">Likes: {{ post.total_likes }}</a>
+
+        <form action="{% url "create_comment" post.id %}" method="post">
+        {% csrf_token %}
+        {{ commentform.as_p }}
+        <input type="submit" value="New comment" />
+        </form>
+
+        {% recursetree post.comments_set.all %}
+            <div style="margin-left: 50px">
+            <p>{{ node.user }}</p>
+            {{ node.comment }}
+            <p><a href="{% url 'comment_like' %}" data-id="{{ node.id }}"
+                              class="btn btn-primary comment_like">Likes: {{ node.total_likes }}</a></p>
+            <form action="{% url "create_answer" node.id %}" method="post">
+            {% csrf_token %}
+            {{ commentform.as_p }}
+            <input type="submit" value="Answer" />
+            </form>
+
+            </div>
+            {% if not node.is_leaf_node %}
+            <h4 style="margin-left: 50px">{{ children }}</h4>
+
+            {% endif %}
+        {% endrecursetree %}
+    <hr>
+    {% endfor %}
+
+{% endblock content %}

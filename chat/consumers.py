@@ -11,7 +11,6 @@ from django.conf import settings
 from django.urls import reverse
 from channels_presence.models import Room
 from channels_presence.decorators import touch_presence
-
 from django.dispatch import receiver
 from channels_presence.signals import presence_changed
 from channels import Group

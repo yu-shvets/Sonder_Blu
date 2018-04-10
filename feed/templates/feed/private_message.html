@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+    <p>Message from {{ message.from_user }}</p>
+    <p>{{ message.message }}</p>
+
+    <form action="{% url "message_create" message.from_user.id %}" method="post">
+        {% csrf_token %}
+        {{ messageform.as_p }}
+        <input type="submit" value="Reply" />
+    </form>
+
+{% endblock content %}

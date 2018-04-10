@@ -20,6 +20,7 @@
         </ul>
         <ul class="nav navbar-nav pull-right">
             {% if user.is_authenticated %}
+                <li><a href="{% url "feed" %}">Feed</a></li>
                 <li><a href="{% url "profile" request.user.pk %}">{{ request.user.username }}</a></li>
                 <li>{{ unread_requests|length }}</li>
                 <li><a href="{% url "accounts:auth_logout" %}">Logout</a></li>
@@ -48,7 +49,9 @@
                                 <a href="#">{{ category }}</a>
                             {% endfor %}
                         </p>
-                        <video src="{{ movie.movie_file.url }}" controls width='75%' height='60%'></video>
+                        <video id="videoPrincipal" src="{{ movie.movie_file.url }}" controls preload width='75%' height='60%' currentTime="5">
+
+                        </video>
                         <p>
                             <a href="{% url 'like' %}" data-id="{{ movie.id }}"
                               class="btn btn-primary like">Likes: {{ movie.total_likes }}</a>
@@ -69,6 +72,16 @@
                                 {% endfor %}
                             </ul>
                         {% endif %}
+                        <hr>
+                        {% for review in movie.reviews_set.all %}
+                            <p>{{ review.user }}</p>
+                            <p>{{ review.review }}</p>
+                            <p><video src="{{ review.video.url }}" controls width='50%' height='40%'></video></p>
+                            <a href="{% url "review_update" review.pk %}" class="btn btn-primary">Edit</a>
+                            <hr>
+                            {% endfor %}
+
+
 
                         {% if not query %}
                         <form action="{% url "review_create" movie.pk %}" method="post" enctype="multipart/form-data"
@@ -164,6 +177,12 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="{% static "tv/js/main.js" %}" type="text/javascript"></script>
+
+{#<script type="text/javascript">#}
+{#myVid = document.getElementById('videoPrincipal');#}
+{#myVid.play();#}
+{#myVid.currentTime ='{{ timediff }}';#}
+{#</script>#}
 
 {% block extra_scripts %}
 <script type="text/javascript" src='{% static "multichat/js/multichat.js" %}'></script>

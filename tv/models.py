@@ -39,6 +39,7 @@ class Movies(CommonInfo):
     url_field = models.URLField(blank=True, null=True, verbose_name='URL')
     category = models.ManyToManyField(Category, blank=True)
     likes = models.ManyToManyField(User, related_name="likes", blank=True)
+    showtime = models.DateTimeField(blank=True, null=True)
 
     class Meta(CommonInfo.Meta):
         verbose_name = "Movie"

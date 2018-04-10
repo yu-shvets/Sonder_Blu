@@ -1,18 +1,20 @@
-{% extends "base.html" %}
+{% extends 'registration/login.html' %}
 
-{% block meta_title %}Register Form{% endblock meta_title %}
 
 {% block content %}
-  <div class="auth_form">
 
-    <form action="{% url "accounts:registration_register" %}" method="post" enctype='multipart/form-data'>
 
-  {% csrf_token %}
+    <form action="{% url "accounts:registration_register" %}" method="post" class="enterRegister-box__form"
+          enctype='multipart/form-data' style="color: white">
+        {% csrf_token %}
 
-        {{ form.as_p }}
+        {% for field in form %}
+        <p style="margin-bottom: 20px; font-size: 20px">{{ field.label }} {{ field }}</p>
+        {% endfor %}
 
-  <button type="submit" class="btn btn-primary">Register</button>
+        <button type="submit" class="enterRegister-box__btn">Sign up</button>
 
     </form>
-  </div>
+
+
 {% endblock content %}

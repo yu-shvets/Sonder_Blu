@@ -1,37 +1,61 @@
-{% extends "base.html" %}
+{% load static from staticfiles %}
 
-{% block meta_title %}Login Form{% endblock meta_title %}
 
-{% block content %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>hello</title>
+	<meta name="viewport" content="width=device-width" />
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+	<link rel="stylesheet" href="{% static "tv/css/screen.css" %}">
+</head>
+<body class="register">
+	<div class="enterRegister">
+		<div class="enterRegister-box">
 
-  <div class="auth_form">
-    <form action="{% url "accounts:auth_login" %}" method="post">
+			<div class="enterRegister-box__logo">
+				<img src="{% static "tv/images/logo.png" %}" alt="logo">
+			</div>
 
-  {% csrf_token %}
-  <input type="hidden" name="next" value="{% url "home" %}" />
-    <div class="form-group">
-    <label for="login">Your Username</label>
-    <input type="text" class="form-control" id="login" value=""
-           name="username" />
+            {% block content %}
+			<h6 class="enterRegister-box__title">
+				Sign in with
+			</h6>
+			<div class="enterRegister-box__soc clearfix">
+				<a href="#" class="enterRegister-box__item soc fb"></a>
+				<a href="#" class="enterRegister-box__item soc soc2"></a>
+				<a href="#" class="enterRegister-box__item soc inst"></a>
+				<a href="#" class="enterRegister-box__item soc tw"></a>
+				<a href="#" class="enterRegister-box__item soc googl"></a>
+			</div>
+			<p class="enterRegister-box__em">
+				or use your e-mail
+			</p>
 
-  </div>
+            <form action="{% url "accounts:auth_login" %}" method="post" class="enterRegister-box__form">
+                {% csrf_token %}
+            <input type="hidden" name="next" value="{% url "home" %}" />
+            <p class="after emailAfter">
+                <input type="email" name="username" placeholder="E-mail" class="email inpt" id="login">
+            </p>
+            <p class="after passwordAfter">
+                <input type="password" name="password" placeholder="Password" class="password inpt" id="password">
+            </p>
+            <a href="{% url 'auth_password_reset' %}" class="fp">Forgot password?</a>
+            <button type="submit" class="enterRegister-box__btn">Sign in</button>
+            </form>
 
-  <div class="form-group">
-    <label for="password">Your Password</label>
-    <input type="password" class="form-control" id="password" value=""
-           name="password" />
+			<p class="enterRegister-box__bot">
+				Don`t have an acount?   <a href="{% url "accounts:registration_register" %}">Sign up</a>
+			</p>
+            {% endblock content %}
 
-  </div>
+		</div>
+	</div>
 
-  <button type="submit" class="btn btn-primary">Login</button>
-</form>
 
-  <p style="margin-top: 20px">
-        <a href="{% url 'auth_password_reset' %}">
-            Forgot your password?
-        </a>
-  </p>
-
-  </div>
-
-{% endblock content %}
+	<script src="{% static "tv/js/jquery-3.2.1.min.js" %}"></script>
+	<script src="{% static "tv/js/js.js" %}"></script>
+</body>
+</html>

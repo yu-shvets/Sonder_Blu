@@ -1,6 +1,6 @@
 from registration.forms import RegistrationFormUniqueEmail
 from django import forms
-from .models import Groups, Feedback, Reviews, Movies
+from .models import Groups, Feedback, Reviews, Movies, UserProfiles
 from django.contrib.auth.models import User
 
 
@@ -37,3 +37,17 @@ class ReviewForm(forms.ModelForm):
     class Meta:
         model = Reviews
         exclude = ('user', 'movie')
+
+
+class UserForm(forms.ModelForm):
+
+    class Meta:
+        model = User
+        fields = ('username', 'email')
+
+
+class UserProfileForm(forms.ModelForm):
+
+    class Meta:
+        model = UserProfiles
+        fields = ('photo',)

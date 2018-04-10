@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'channels_presence',
     'celery',
     'multichat',
+    'feed',
+    'mptt',
 ]
 
 MIDDLEWARE = [
@@ -192,3 +194,5 @@ MESSAGE_TYPES_LIST = [
     MSG_TYPE_LEAVE,
 ]
 
+
+AUTHENTICATION_BACKENDS = ['tv.backends.UserModelEmailBackend', ]

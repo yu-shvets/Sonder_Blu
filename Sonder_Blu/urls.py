@@ -20,9 +20,12 @@ from django.conf import settings
 from django.conf.urls.static import static
 from tv.views import HomeView, search, like, send_request, accept_request, cancel_request, remove_friend, profile, \
     GroupFormView, GroupCreateView, GroupDetailView, join_group, leave_group, delete_group, FeedbackCreateView, \
-    ReviewCreateView, search_movies, search_people, add_favorite, CategoryFilterView
+    ReviewCreateView, search_movies, search_people, add_favorite, CategoryFilterView, ReviewUpdateView, user_edit, \
+    UpdateFormView
 from chat.views import IndexView
 from multichat.views import multichat_view
+from feed.views import feed_view, PostCreateView, CommentCreateView, post_like, AnswerCreateView, comment_like, \
+    MessageCreateView, open_message
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.views import login
 from django.contrib.auth.forms import AuthenticationForm
@@ -51,6 +54,9 @@ urlpatterns = [
     url(r'^search_people/(?P<query>.+)/$', search_people, name='search_people'),
     url(r'^add_favorite/(?P<movie_id>\d+)/$', add_favorite, name='add_favorite'),
     url(r'^category_search/$', CategoryFilterView.as_view(), name='category_search'),
+    url(r'^review_update/(?P<pk>\d+)/$', ReviewUpdateView.as_view(), name='review_update'),
+    url(r'^user_update/$', user_edit, name='user_update'),
+    url(r'^update_form/$', UpdateFormView.as_view(), name='update_form'),
 
                   url(r'^login/$',
                       auth_views.LoginView.as_view(
@@ -113,6 +119,15 @@ urlpatterns = [
     url(r'^chat/$', IndexView.as_view(), name='chat'),
 
     url(r'^multichat/$', multichat_view, name='multichat'),
+
+    url(r'^feed/$', feed_view, name='feed'),
+    url(r'^create_post/$', PostCreateView.as_view(), name='create_post'),
+    url(r'^create_comment/(?P<post_id>\d+)/$', CommentCreateView.as_view(), name='create_comment'),
+    url(r'^create_answer/(?P<comment_id>\d+)/$', AnswerCreateView.as_view(), name='create_answer'),
+    url(r'^feed/post_like/$', post_like, name='post_like'),
+    url(r'^feed/comment_like/$', comment_like, name='comment_like'),
+    url(r'^message_create/(?P<user_id>\d+)/$', MessageCreateView.as_view(), name='message_create'),
+    url(r'^open_message/(?P<message_id>\d+)/$', open_message, name='open_message'),
 
     url(r'^admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

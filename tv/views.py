@@ -4,18 +4,21 @@ from .models import Movies, Groups, Feedback, Reviews, UserProfiles, Category
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from friendship.models import Friend, FriendshipRequest
-from django.views.generic.edit import CreateView
-from .forms import GroupForm, FeedbackForm, ReviewForm
+from django.views.generic.edit import CreateView, UpdateView
+from .forms import GroupForm, FeedbackForm, ReviewForm, UserProfileForm, UserForm
 from django.urls import reverse_lazy
 from django.contrib import messages
 from multichat.models import Room
 from django_filters import FilterSet, ModelMultipleChoiceFilter, OrderingFilter
 from django import forms
 from django_filters.views import FilterView
+from datetime import datetime, timezone
+from django.contrib.auth.mixins import LoginRequiredMixin
+from feed.forms import MessageForm
 
 
-class HomeView(TemplateView):
-    template_name = 'base.html'
+class HomeView(LoginRequiredMixin, TemplateView):
+    template_name = 'index.html'
 
     def get_context_data(self, **kwargs):
         context = super(HomeView, self).get_context_data(**kwargs)
@@ -24,6 +27,7 @@ class HomeView(TemplateView):
         context['feedback_form'] = FeedbackForm
         context['feedbacks'] = Feedback.objects.all()
         context['review_form'] = ReviewForm
+        context['timediff'] = timediff()
         if not self.request.user.is_anonymous:
             context['sent_requests'] = [item.to_user for item in Friend.objects.sent_requests(user=self.request.user)]
         return context
@@ -33,8 +37,12 @@ def profile(request, user_id):
     user = get_object_or_404(User, pk=user_id)
     unread_requests = [item.from_user for item in Friend.objects.unread_requests(user=user)]
     friends = Friend.objects.friends(user)
+    messageform = MessageForm
+    userprofileform = UserProfileForm
+    userform = UserForm
     return render(request, 'registration/profile.html', {'user_info': user, 'unread_requests': unread_requests,
-                                                         'friends': friends})
+                                                         'friends': friends, 'messageform': messageform,
+                                                         'userform': userform, 'userprofileform': userprofileform})
 
 
 def search(request):
@@ -164,6 +172,13 @@ class ReviewCreateView(CreateView):
         return HttpResponseRedirect(reverse('home'))
 
 
+class ReviewUpdateView(UpdateView):
+    model = Reviews
+    fields = ['video', 'review']
+    template_name = 'tv/review_update_form.html'
+    success_url = reverse_lazy('home')
+
+
 def add_favorite(request, movie_id):
     movie = get_object_or_404(Movies, id=movie_id)
     userprofile = UserProfiles.objects.get(user=request.user)
@@ -174,10 +189,11 @@ def add_favorite(request, movie_id):
 class CategoryFilter(FilterSet):
 
     category = ModelMultipleChoiceFilter(queryset=Category.objects.all(), widget=forms.CheckboxSelectMultiple)
+    rating = ModelMultipleChoiceFilter(queryset=Movies.objects.values_list('rating', flat=True), widget=forms.CheckboxSelectMultiple)
 
     class Meta:
         model = Movies
-        fields = ['category']
+        fields = ['category', 'rating']
 
 
 class CategoryFilterView(FilterView):
@@ -185,3 +201,38 @@ class CategoryFilterView(FilterView):
     filterset_class = CategoryFilter
 
 
+def timediff():
+    movie = Movies.objects.last()
+    timediff = datetime.now(timezone.utc) - movie.showtime
+    return int(timediff.total_seconds())
+
+
+def user_edit(request):
+
+    if request.method == 'POST':
+        user_form = UserForm(request.POST, instance=request.user)
+        profile_form = UserProfileForm(request.POST, request.FILES, instance=request.user.profile)
+
+        if all([user_form.is_valid(), profile_form.is_valid()]):
+            user = user_form.save()
+            profile = profile_form.save()
+            return HttpResponseRedirect(reverse('home'))
+
+    else:
+        user_form = UserForm(instance=request.user)
+        profile_form = UserProfileForm(instance=request.user.profile)
+
+    return render(request, 'tv/profile_update_form.html', {
+        'user_form': user_form,
+        'profile_form': profile_form,
+    })
+
+
+class UpdateFormView(TemplateView):
+    template_name = 'tv/profile_update_form.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(UpdateFormView, self).get_context_data(**kwargs)
+        context['user_form'] = UserForm(instance=self.request.user)
+        context['profile_form'] = UserProfileForm(instance=self.request.user.profile)
+        return context
