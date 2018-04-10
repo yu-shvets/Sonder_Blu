@@ -27,7 +27,6 @@ class HomeView(LoginRequiredMixin, TemplateView):
         context['feedback_form'] = FeedbackForm
         context['feedbacks'] = Feedback.objects.all()
         context['review_form'] = ReviewForm
-        context['timediff'] = timediff()
         if not self.request.user.is_anonymous:
             context['sent_requests'] = [item.to_user for item in Friend.objects.sent_requests(user=self.request.user)]
         return context
@@ -205,10 +204,10 @@ class CategoryFilterView(FilterView):
     filterset_class = CategoryFilter
 
 
-def timediff():
-    movie = Movies.objects.last()
-    timediff = datetime.now(timezone.utc) - movie.showtime
-    return int(timediff.total_seconds())
+# def timediff():
+#     movie = Movies.objects.last()
+#     timediff = datetime.now(timezone.utc) - movie.showtime
+#     return int(timediff.total_seconds())
 
 
 def user_edit(request):
