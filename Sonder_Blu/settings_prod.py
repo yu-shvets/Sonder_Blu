@@ -89,7 +89,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'sonder_blu_tv',
-        'USER': 'sonder_blu_user',
+        'USER': 'django',
         'PASSWORD': '********',
         'HOST': 'localhost',
         'PORT': '',
