@@ -1,0 +1,9 @@
+{% extends "registration/login.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Logged out" %}{% endblock %}
+
+{% block content %}
+<p style="color: white">{% trans "Successfully logged out" %}.</p>
+<a class="enterRegister-box__btn" href="{% url "accounts:auth_login" %}">Sign in</a>
+{% endblock %}
