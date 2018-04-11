@@ -27,10 +27,10 @@
                 </a>
             </div>
             <div class="header-icons">
-                <a href="#" class="header-icons__item item1" data-text='Home'></a>
-                <a href="#" class="header-icons__item item2" data-text='Screening Room Groups'></a>
-                <a href="#" class="header-icons__item item3" data-text='Watch together'></a>
-                <a href="#" class="header-icons__item item4" data-text='Scheduled films'></a>
+                <a href="{% url 'home' %}" class="header-icons__item item1"></a>
+                <a href="#" class="header-icons__item item2"></a>
+                <a href="{% url 'group_view' %}" class="header-icons__item item3"></a>
+                <a href="{% url 'film_view' %}" class="header-icons__item item4"></a>
             </div>
             <form class="header-serch">
                 <input type="text" name="serch">
@@ -62,15 +62,7 @@
                         <p class="name bell">{{ user.username }}</p>
                     </div>
                     <p class="sidebar-top__text ">
-                        Thiiss isi Photoshoip's versssision Tf Leim Ipuim. Pem Ipuim. Porem Tfh hfd puim. Proiiin
-                        gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi
-                        elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate
-                        cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a
-                        ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu
-                        ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac
-                        urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi.
-                        Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris
-                        egestas quam, ut aliquam massa nisl quis neque. Suspendisse in orci enim.
+                    {{ user.profile.bio }}
                     </p>
                 </div>
                 <div class="sidebar-friends accordion-wrap">
@@ -284,15 +276,8 @@
                                 </div>
                             </div>
                             <div class="profile__bio">
-                                <p>
-                                    Bio:<br>This is Photosh op's version of Lorem Ipsum. Proin gra tr vidoa nibh vel
-                                    velit
-                                    auctor aliquet. Aenean sollicitudin, lorem qtr tiiuis bibe ndum auctor, nisi elit
-                                    cons equat ipsum, nec sagittis iseiim<br>
-
-                                    nibh id elit. Duis sed odio sit amet nibh vulpuf didtate cursus a sit amet mauris.
-                                    Morbi accum dfgd san ips fium velit . Nam nec teltlus a odio tin cidunt auctor a
-                                    ornare odio. Sed n fon mauris
+                                <p style="text-align: justify">
+                                    Bio:<br>{{ user.profile.bio }}
                                 </p>
                             </div>
                         </div>

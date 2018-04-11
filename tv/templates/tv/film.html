@@ -58,8 +58,8 @@
                             <p class="name bell"><a style="color:white; text-decoration: none" href="{% url 'profile_view' %}">{{ user.username }}</a></p>
                         </div>
 						<p class="sidebar-top__text ">
-							Thiiss isi Photoshoip's versssision  Tf Leim Ipuim. Pem Ipuim. Porem Tfh hfd puim. Proiiin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa nisl quis neque. Suspendisse in orci enim.
-						</p>
+							{{ user.profile.bio }}
+                        </p>
 					</div>
 					<div class="sidebar-friends accordion-wrap">
 						<h6 class="sidebar-title accordion-title">
@@ -147,13 +147,13 @@
 					</div>
 					<div class="sidebar-cards">
 						<div class="sidebar-cards__item">
-							<a href="#" data-video='https://www.youtube.com/embed/JpuWCQzgQSw?&autoplay=1'><img src="images/card1.png" alt=""></a>
+							<a href="#" data-video='https://www.youtube.com/embed/JpuWCQzgQSw?&autoplay=1'><img src="{% static "tv/images/card1.png" %}" alt=""></a>
 						</div>
 						<div class="sidebar-cards__item">
-							<a href="#" data-video='https://www.youtube.com/embed/3Y83WrmysBY?&autoplay=1'><img src="images/card2.png" alt=""></a>
+							<a href="#" data-video='https://www.youtube.com/embed/3Y83WrmysBY?&autoplay=1'><img src="{% static "tv/images/card2.png" %}" alt=""></a>
 						</div>
 						<div class="sidebar-cards__item">
-							<a href="#" data-video='https://www.youtube.com/embed/ixzGpJnwyxw?&autoplay=1'><img src="images/card3.png" alt=""></a>
+							<a href="#" data-video='https://www.youtube.com/embed/ixzGpJnwyxw?&autoplay=1'><img src="{% static "tv/images/card3.png" %}" alt=""></a>
 						</div>
 					</div>
 					<a href="#" class="sidebar-recomend">Recommended friends</a>
@@ -165,7 +165,7 @@
 							<div class="col-3x">
 								<div class="sidebar-groups__item">
 									<div class="avatar">
-										<a href="#"><img src="images/avatar3.png" alt=""></a>
+										<a href="#"><img src="{% static "tv/images/avatar3.png" %}" alt=""></a>
 									</div>
 									<p class="name">
 										Group 1
@@ -175,7 +175,7 @@
 							<div class="col-3x">
 								<div class="sidebar-groups__item">
 									<div class="avatar">
-										<a href="#"><img src="images/avatar3.png" alt=""></a>
+										<a href="#"><img src="{% static "tv/images/avatar3.png" %}" alt=""></a>
 									</div>
 									<p class="name">
 										Group 1
@@ -185,7 +185,7 @@
 							<div class="col-3x">
 								<div class="sidebar-groups__item">
 									<div class="avatar">
-										<a href="#"><img src="images/avatar3.png" alt=""></a>
+										<a href="#"><img src="{% static "tv/images/avatar3.png" %}" alt=""></a>
 									</div>
 									<p class="name">
 										Group 1
@@ -195,7 +195,7 @@
 							<div class="col-3x">
 								<div class="sidebar-groups__item">
 									<div class="avatar">
-										<a href="#"><img src="images/avatar3.png" alt=""></a>
+										<a href="#"><img src="{% static "tv/images/avatar3.png" %}" alt=""></a>
 									</div>
 									<p class="name">
 										Group 1
@@ -205,7 +205,7 @@
 							<div class="col-3x">
 								<div class="sidebar-groups__item">
 									<div class="avatar">
-										<a href="#"><img src="images/avatar3.png" alt=""></a>
+										<a href="#"><img src="{% static "tv/images/avatar3.png" %}" alt=""></a>
 									</div>
 									<p class="name">
 										Group 1
@@ -215,7 +215,7 @@
 							<div class="col-3x">
 								<div class="sidebar-groups__item">
 									<div class="avatar">
-										<a href="#"><img src="images/avatar3.png" alt=""></a>
+										<a href="#"><img src="{% static "tv/images/avatar3.png" %}" alt=""></a>
 									</div>
 									<p class="name">
 										Group 1
@@ -418,10 +418,12 @@
 		</div>
 	</div>
 
-	<script src="js/jquery-3.2.1.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-	<script src="{% static "tv/libs/TC/TimeCircles.js" %}"></script>
-	<script src="{% static "tv/js/js.js" %}"></script>
+<script src="{% static "tv/js/jquery-3.2.1.min.js" %}"></script>
+<script src="{% static "tv/libs/bootstrap/js/bootstrap.js" %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+<script src="{% static "tv/libs/TC/TimeCircles.js" %}"></script>
+<script src="{% static "tv/js/js.js" %}"></script>
+<script src="{% static "tv/js/secondary.js" %}"></script>
 </body>
 </html>
