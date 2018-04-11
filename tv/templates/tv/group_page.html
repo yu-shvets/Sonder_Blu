@@ -1,9 +1,51 @@
-{% extends 'index.html' %}
 {% load static from staticfiles %}
 
-
-{% block content %}
-
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>MVP TV</title>
+    <meta name="viewport" content="width=device-width"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+    <link rel="stylesheet" href="{% static "tv/libs/TC/readme.css" %}">
+    <link rel="stylesheet" href="{% static "tv/libs/TC/TimeCircles.css" %}">
+    <link rel="stylesheet" href="{% static "tv/css/screen.css" %}">
+    <link rel="stylesheet" href="{% static "tv/css/secondary.css" %}">
+</head>
+<body class="page-film sidebar-close">
+<header class="header">
+    <div class="container">
+        <div class="header-box">
+            <div class="header-logo">
+                <a href="{% url 'home' %}">
+                    <img src="{% static "tv/images/logo.png" %}" alt="placeholder+image">
+                </a>
+            </div>
+            <div class="header-icons">
+                <a href="{% url 'home' %}" class="header-icons__item item1"></a>
+                <a href="#" class="header-icons__item item2"></a>
+                <a href="{% url 'group_view' %}" class="header-icons__item item3"></a>
+                <a href="{% url 'film_view' %}" class="header-icons__item item4"></a>
+            </div>
+            <form class="header-serch">
+                <input type="text" name="serch">
+                <button class="header-serch__btn"></button>
+            </form>
+            <div class="header-logIn">
+                <a class="header-logIn__item in" href="{% url 'search_view' %}">Search</a>
+                <a href="{% url "accounts:auth_login" %}" class="header-logIn__item in">Login</a>
+                <span>|</span>
+                <a href="{% url "accounts:auth_logout" %}" class="header-logIn__item out">Logout</a>
+                <a href="#" class="header-logIn__item set"></a>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="hide-sidebar"></a>
+</header>
 <div class="contentWrap">
     <div class="container">
         <div class="container-flex">
@@ -125,7 +167,6 @@
                             <a href="#" data-video='https://www.youtube.com/embed/ixzGpJnwyxw?&autoplay=1'><img
                                     src="{% static "tv/images/card3.png" %}" alt=""></a>
                         </div>
-                    </div>
                 </div>
                 <a href="#" class="sidebar-recomend">Recommended friends</a>
                 <div class="sidebar-groups accordion-wrap">
@@ -157,7 +198,7 @@
                         <div class="col-3x">
                             <div class="sidebar-groups__item">
                                 <div class="avatar">
-                                    <a href="#"><img src="i{% static "tv/images/avatar3.png" %}" alt=""></a>
+                                    <a href="#"><img src="{% static "tv/images/avatar3.png" %}" alt=""></a>
                                 </div>
                                 <p class="name">
                                     Group 1
@@ -262,7 +303,7 @@
                                         5
                                     </span>
                                                         <span class="vase"></span>
-                                                        <img src="images/avatar2.png" alt="">
+                                                        <img src="{% static "tv/images/avatar2.png" %}" alt="">
                                                     </a>
                                                     <p class="name">
                                                         Petr Ivanov
@@ -273,7 +314,7 @@
                                                 <div class="sidebar-friends__item">
                                                     <a href="#" class="ava circle">
                                                         <span class="vase"></span>
-                                                        <img src="images/avatar2.png" alt="">
+                                                        <img src="{% static "tv/images/avatar2.png" %}" alt="">
                                                     </a>
                                                     <p class="name">
                                                         Petr Ivanov
@@ -284,7 +325,7 @@
                                                 <div class="sidebar-friends__item">
                                                     <a href="#" class="ava circle">
                                                         <span class="vase"></span>
-                                                        <img src="images/avatar2.png" alt="">
+                                                        <img src="{% static "tv/images/avatar2.png" %}" alt="">
                                                     </a>
                                                     <p class="name">
                                                         Petr Ivanov
@@ -295,7 +336,7 @@
                                                 <div class="sidebar-friends__item">
                                                     <a href="#" class="ava circle">
                                                         <span class="vase"></span>
-                                                        <img src="images/avatar2.png" alt="">
+                                                        <img src="{% static "tv/images/avatar2.png" %}" alt="">
                                                     </a>
                                                     <p class="name">
                                                         Petr Ivanov
@@ -306,7 +347,7 @@
                                                 <div class="sidebar-friends__item">
                                                     <a href="#" class="ava circle">
                                                         <span class="vase"></span>
-                                                        <img src="images/avatar2.png" alt="">
+                                                        <img src="{% static "tv/images/avatar2.png" %}" alt="">
                                                     </a>
                                                     <p class="name">
                                                         Petr Ivanov
@@ -317,7 +358,7 @@
                                                 <div class="sidebar-friends__item">
                                                     <a href="#" class="ava circle">
                                                         <span class="vase"></span>
-                                                        <img src="images/avatar2.png" alt="">
+                                                        <img src="{% static "tv/images/avatar2.png" %}" alt="">
                                                     </a>
                                                     <p class="name">
                                                         Petr Ivanov
@@ -328,7 +369,7 @@
                                                 <div class="sidebar-friends__item">
                                                     <a href="#" class="ava circle">
                                                         <span class="vase"></span>
-                                                        <img src="images/avatar2.png" alt="">
+                                                        <img src="{% static "tv/images/avatar2.png" %}" alt="">
                                                     </a>
                                                     <p class="name">
                                                         Petr Ivanov
@@ -339,7 +380,7 @@
                                                 <div class="sidebar-friends__item">
                                                     <a href="#" class="ava circle">
                                                         <span class="vase"></span>
-                                                        <img src="images/avatar2.png" alt="">
+                                                        <img src="{% static "tv/images/avatar2.png" %}" alt="">
                                                     </a>
                                                     <p class="name">
                                                         Petr Ivanov
@@ -350,7 +391,7 @@
                                                 <div class="sidebar-friends__item">
                                                     <a href="#" class="ava circle">
                                                         <span class="vase"></span>
-                                                        <img src="images/avatar2.png" alt="">
+                                                        <img src="{% static "tv/images/avatar2.png" %}" alt="">
                                                     </a>
                                                     <p class="name">
                                                         Petr Ivanov
@@ -363,17 +404,17 @@
                                         <div class="sidebar-cards__item">
                                             <a href="#"
                                                data-video='https://www.youtube.com/embed/JpuWCQzgQSw?&autoplay=1'><img
-                                                    src="images/card1.png" alt=""></a>
+                                                    src="{% static "tv/images/card1.png" %}" alt=""></a>
                                         </div>
                                         <div class="sidebar-cards__item">
                                             <a href="#"
                                                data-video='https://www.youtube.com/embed/3Y83WrmysBY?&autoplay=1'><img
-                                                    src="images/card2.png" alt=""></a>
+                                                    src="{% static "tv/images/card2.png" %}" alt=""></a>
                                         </div>
                                         <div class="sidebar-cards__item">
                                             <a href="#"
                                                data-video='https://www.youtube.com/embed/ixzGpJnwyxw?&autoplay=1'><img
-                                                    src="images/card3.png" alt=""></a>
+                                                    src="{% static "tv/images/card3.png" %}" alt=""></a>
                                         </div>
                                     </div>
                                     <a class="profile__btn profile__btn-center" href="/group_create.html">
@@ -396,7 +437,7 @@
                                     <div class="newsWrap-item">
                                         <div class="newsWrap-item__avatar">
                                             <a href="#">
-                                                <img src="images/avatar3.png" alt="">
+                                                <img src="{% static "tv/images/avatar3.png" %}" alt="">
                                             </a>
                                         </div>
                                         <div class="newsWrap-item__content">
@@ -423,7 +464,7 @@
                                                 <div class="newsWrap-item__comentsWrap">
                                                     <div class="avatar newsWrap-item__avatar">
                                                         <a href="#">
-                                                            <img src="images/avatar2.png" alt="">
+                                                            <img src="{% static "tv/images/avatar2.png" %}" alt="">
                                                         </a>
                                                     </div>
                                                     <div class="comentsBody">
@@ -447,7 +488,7 @@
                                                 <div class="newsWrap-item__comentsWrap">
                                                     <div class="avatar newsWrap-item__avatar">
                                                         <a href="#">
-                                                            <img src="images/avatar3.png" alt="">
+                                                            <img src="{% static "tv/images/avatar2.png" %}" alt="">
                                                         </a>
                                                     </div>
                                                     <div class="comentsBody">
@@ -471,7 +512,7 @@
                                                 <div class="newsWrap-item__comentsWrap">
                                                     <div class="avatar newsWrap-item__avatar">
                                                         <a href="#">
-                                                            <img src="images/avatar4.png" alt="">
+                                                            <img src="{% static "tv/images/avatar4.png" %}" alt="">
                                                         </a>
                                                     </div>
                                                     <div class="comentsBody">
@@ -498,7 +539,7 @@
                                     <div class="newsWrap-item">
                                         <div class="newsWrap-item__avatar">
                                             <a href="#">
-                                                <img src="images/avatar3.png" alt="">
+                                                <img src="{% static "tv/images/avatar3.png" %}" alt="">
                                             </a>
                                         </div>
                                         <div class="newsWrap-item__content">
@@ -522,7 +563,7 @@
                                                 <div class="newsWrap-item__comentsWrap">
                                                     <div class="avatar newsWrap-item__avatar">
                                                         <a href="#">
-                                                            <img src="images/avatar3.png" alt="">
+                                                            <img src="{% static "tv/images/avatar3.png" %}" alt="">
                                                         </a>
                                                     </div>
                                                     <div class="comentsBody">
@@ -574,7 +615,7 @@
                             <div class="chatWrap-messBox clearfix">
                                 <div class="chatWrap-messBox__avatar">
                                     <a href="#">
-                                        <img src="images/avatar3.png" alt="">
+                                        <img src="{% static "tv/images/avatar3.png" %}" alt="">
                                     </a>
                                 </div>
                                 <div class="chatWrap-messBox__text">
@@ -590,7 +631,7 @@
                             <div class="chatWrap-messBox clearfix">
                                 <div class="chatWrap-messBox__avatar">
                                     <a href="#">
-                                        <img src="images/avatar3.png" alt="">
+                                        <img src="{% static "tv/images/avatar3.png" %}" alt="">
                                     </a>
                                 </div>
                                 <div class="chatWrap-messBox__text">
@@ -605,7 +646,7 @@
                             <div class="chatWrap-messBox clearfix">
                                 <div class="chatWrap-messBox__avatar">
                                     <a href="#">
-                                        <img src="images/avatar3.png" alt="">
+                                        <img src="{% static "tv/images/avatar3.png" %}" alt="">
                                     </a>
                                 </div>
                                 <div class="chatWrap-messBox__text">
@@ -620,7 +661,7 @@
                             <div class="chatWrap-messBox clearfix">
                                 <div class="chatWrap-messBox__avatar">
                                     <a href="#">
-                                        <img src="images/avatar3.png" alt="">
+                                        <img src="{% static "tv/images/avatar3.png" %}" alt="">
                                     </a>
                                 </div>
                                 <div class="chatWrap-messBox__text">
@@ -635,7 +676,7 @@
                             <div class="chatWrap-messBox clearfix">
                                 <div class="chatWrap-messBox__avatar">
                                     <a href="#">
-                                        <img src="images/avatar3.png" alt="">
+                                        <img src="{% static "tv/images/avatar3.png" %}" alt="">
                                     </a>
                                 </div>
                                 <div class="chatWrap-messBox__text">
@@ -659,4 +700,13 @@
     </div>
 </div>
 
-{% endblock content %}
+
+<script src="{% static "tv/js/jquery-3.2.1.min.js" %}"></script>
+<script src="{% static "tv/libs/bootstrap/js/bootstrap.js" %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+<script src="{% static "tv/libs/TC/TimeCircles.js" %}"></script>
+<script src="{% static "tv/js/js.js" %}"></script>
+<script src="{% static "tv/js/secondary.js" %}"></script>
+</body>
+</html>
