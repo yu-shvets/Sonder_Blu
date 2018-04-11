@@ -26,10 +26,10 @@
                 </a>
             </div>
             <div class="header-icons">
-                <a href="#" class="header-icons__item item1"></a>
+                <a href="{% url 'home' %}" class="header-icons__item item1"></a>
                 <a href="#" class="header-icons__item item2"></a>
                 <a href="#" class="header-icons__item item3"></a>
-                <a href="#" class="header-icons__item item4"></a>
+                <a href="{% url 'film_view' %}" class="header-icons__item item4"></a>
             </div>
             <form class="header-serch">
                 <input type="text" name="serch">
@@ -49,7 +49,7 @@
     <a href="#" class="hide-sidebar"></a>
 </header>
 
-
+    {% block content %}
     <div class="bg-one"></div>
     <div class="videoWrap">
         <iframe width="854" height="480" src="https://www.youtube.com/embed/JpuWCQzgQSw?&autoplay=1" frameborder="0"
@@ -57,7 +57,6 @@
         <div class="bg"></div>
     </div>
 
-    {% block content %}
     <div class="contentWrap">
         <div class="container">
             <div class="container-flex">
@@ -299,7 +298,7 @@
                                 </div>
                                 <a href="#" class="time"></a>
                             </div>
-                            <a href="{% url 'film_view' %}"><img src="{% static "tv/images/dp.png" %}" alt=""></a>
+                            <a href="#"><img src="{% static "tv/images/dp.png" %}" alt=""></a>
                             <h6 class="bannerWrap-title">Title</h6>
                         </div>
                         <div class="newsWrap">
@@ -467,9 +466,6 @@
                             <div id="chats">
                             </div>
                             <div class="chatWrap-head">
-                                <a href="#">Private</a>
-                                <span>|</span>
-                                <a href="#">Groups</a>
                             </div>
                             <div class="chatWrap-items">
                                 <div class="chatWrap-messBox clearfix">
@@ -563,5 +559,6 @@
 <script src="{% static "tv/js/js.js" %}"></script>
 <script type="text/javascript" src='{% static "multichat/js/multichat.js" %}'></script>
 <script type="text/javascript" src='{% static "multichat/js/reconnecting-websocket.min.js" %}'></script>
+{% block extra_scripts %}{% endblock %}
 </body>
 </html>

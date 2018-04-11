@@ -39,6 +39,15 @@ class SearchView(TemplateView):
 class FilmView(TemplateView):
     template_name = 'tv/film.html'
 
+    def get_context_data(self, **kwargs):
+        context = super(FilmView, self).get_context_data(**kwargs)
+        context['movie'] = Movies.objects.filter().first()
+        return context
+
+
+class GroupView(TemplateView):
+    template_name = 'tv/group_page.html'
+
 
 class ProfileView(TemplateView):
     template_name = 'tv/profile.html'

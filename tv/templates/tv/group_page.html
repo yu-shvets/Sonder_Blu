@@ -1,0 +1,662 @@
+{% extends 'index.html' %}
+{% load static from staticfiles %}
+
+
+{% block content %}
+
+<div class="contentWrap">
+    <div class="container">
+        <div class="container-flex">
+            <div class="sidebar hide">
+                <div class="sidebar-top">
+                    <div class="sidebar-top__box">
+                        <a href="#" class="avatar">
+                            <img src="images/avatar1.png" alt="avatar">
+                        </a>
+                        <p class="name bell">Petr Ivanov</p>
+                    </div>
+                    <p class="sidebar-top__text ">
+                        Thiiss isi Photoshoip's versssision Tf Leim Ipuim. Pem Ipuim. Porem Tfh hfd puim. Proiiin
+                        gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi
+                        elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate
+                        cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a
+                        ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu
+                        ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac
+                        urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi.
+                        Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris
+                        egestas quam, ut aliquam massa nisl quis neque. Suspendisse in orci enim.
+                    </p>
+                </div>
+                <div class="sidebar-friends accordion-wrap">
+                    <h6 class="sidebar-title accordion-title">
+                        Friends
+                    </h6>
+                    <div class="sidebar-friends__box accordion-box">
+                        <div class="col-3x">
+                            <div class="sidebar-friends__item">
+                                <a href="#" class="ava circle">
+                                    <span class="vase"></span>
+
+                                    <img src="{% static "tv/images/avatar2.png" %}" alt="">
+                                </a>
+                                <p class="name">
+                                    Petr Ivanov
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-3x">
+                            <div class="sidebar-friends__item">
+                                <a href="#" class="ava circle">
+                                    <span class="vase"></span>
+                                    <img src="{% static "tv/images/avatar2.png" %}" alt="">
+                                </a>
+                                <p class="name">
+                                    Petr Ivanov
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-3x">
+                            <div class="sidebar-friends__item">
+                                <a href="#" class="ava circle">
+                                    <span class="vase"></span>
+                                    <img src="{% static "tv/images/avatar2.png" %}" alt="">
+                                </a>
+                                <p class="name">
+                                    Petr Ivanov
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-3x">
+                            <div class="sidebar-friends__item">
+                                <a href="#" class="ava circle">
+                                    <span class="vase"></span>
+                                    <img src="{% static "tv/images/avatar2.png" %}" alt="">
+                                </a>
+                                <p class="name">
+                                    Petr Ivanov
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-3x">
+                            <div class="sidebar-friends__item">
+                                <a href="#" class="ava circle">
+                                    <span class="vase"></span>
+                                    <img src="{% static "tv/images/avatar2.png" %}" alt="">
+                                </a>
+                                <p class="name">
+                                    Petr Ivanov
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-3x">
+                            <div class="sidebar-friends__item">
+                                <a href="#" class="ava circle">
+                                    <span class="vase"></span>
+                                    <img src="{% static "tv/images/avatar2.png" %}" alt="">
+                                </a>
+                                <p class="name">
+                                    Petr Ivanov
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-3x">
+                            <div class="sidebar-friends__item">
+                                <a href="#" class="ava circle">
+                                    <span class="vase"></span>
+                                    <img src="{% static "tv/images/avatar2.png" %}" alt="">
+                                </a>
+                                <p class="name">
+                                    Petr Ivanov
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar-cards">
+                        <div class="sidebar-cards__item">
+                            <a href="#" data-video='https://www.youtube.com/embed/JpuWCQzgQSw?&autoplay=1'><img
+                                    src="{% static "tv/images/card1.png" %}" alt=""></a>
+                        </div>
+                        <div class="sidebar-cards__item">
+                            <a href="#" data-video='https://www.youtube.com/embed/3Y83WrmysBY?&autoplay=1'><img
+                                    src="{% static "tv/images/card2.png" %}" alt=""></a>
+                        </div>
+                        <div class="sidebar-cards__item">
+                            <a href="#" data-video='https://www.youtube.com/embed/ixzGpJnwyxw?&autoplay=1'><img
+                                    src="{% static "tv/images/card3.png" %}" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="sidebar-recomend">Recommended friends</a>
+                <div class="sidebar-groups accordion-wrap">
+                    <h6 class="sidebar-title">
+                        Groups
+                        <a class="addGroups">+</a>
+                    </h6>
+                    <div class="sidebar-groups__box accordion-box">
+                        <div class="col-3x">
+                            <div class="sidebar-groups__item">
+                                <div class="avatar">
+                                    <a href="#"><img src="{% static "tv/images/avatar3.png" %}" alt=""></a>
+                                </div>
+                                <p class="name">
+                                    Group 1
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-3x">
+                            <div class="sidebar-groups__item">
+                                <div class="avatar">
+                                    <a href="#"><img src="{% static "tv/images/avatar3.png" %}" alt=""></a>
+                                </div>
+                                <p class="name">
+                                    Group 1
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-3x">
+                            <div class="sidebar-groups__item">
+                                <div class="avatar">
+                                    <a href="#"><img src="i{% static "tv/images/avatar3.png" %}" alt=""></a>
+                                </div>
+                                <p class="name">
+                                    Group 1
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-3x">
+                            <div class="sidebar-groups__item">
+                                <div class="avatar">
+                                    <a href="#"><img src="{% static "tv/images/avatar3.png" %}" alt=""></a>
+                                </div>
+                                <p class="name">
+                                    Group 1
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-3x">
+                            <div class="sidebar-groups__item">
+                                <div class="avatar">
+                                    <a href="#"><img src="{% static "tv/images/avatar3.png" %}" alt=""></a>
+                                </div>
+                                <p class="name">
+                                    Group 1
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-3x">
+                            <div class="sidebar-groups__item">
+                                <div class="avatar">
+                                    <a href="#"><img src="{% static "tv/images/avatar3.png" %}" alt=""></a>
+                                </div>
+                                <p class="name">
+                                    Group 1
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="sidebar-recomend recomend-groups">Recommended groups</a>
+            </div>
+            <div class="content">
+                <div class="content-left">
+                    <div class="group__wrapper">
+                        <div class="group__left">
+                            <div class="group__lists">
+                                <div class="group__tops">
+                                    <h6 class="sidebar-title accordion-title">
+                                        Group tops
+                                    </h6>
+                                    <div class="">
+                                        <div class="searchWrap-content__box">
+                                            <div class="head clearfix">
+                                                <a href="#" class="avatar blue">
+                                                    <img src="{% static "tv/images/avatar3.png" %}">
+                                                </a>
+                                                <span class="name">
+												Peter Ivanov
+											</span>
+                                                <span class="vase vase-one"></span>
+                                            </div>
+                                            <div class="vid">
+                                                <iframe width="440" height="320"
+                                                        src="https://www.youtube.com/embed/jGhe7J2MJbQ" frameborder="0"
+                                                        allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                            </div>
+                                            <div class="slider-video" style="display: none;">
+                                                <div class="slide">
+                                                    <iframe width="440" height="320"
+                                                            src="https://www.youtube.com/embed/jGhe7J2MJbQ"
+                                                            frameborder="0" allow="autoplay; encrypted-media"
+                                                            allowfullscreen></iframe>
+                                                </div>
+                                                <div class="slide">
+                                                    <iframe width="440" height="320"
+                                                            src="https://www.youtube.com/embed/jGhe7J2MJbQ"
+                                                            frameborder="0" allow="autoplay; encrypted-media"
+                                                            allowfullscreen></iframe>
+                                                </div>
+                                                <div class="slide">
+                                                    <iframe width="440" height="320"
+                                                            src="https://www.youtube.com/embed/jGhe7J2MJbQ"
+                                                            frameborder="0" allow="autoplay; encrypted-media"
+                                                            allowfullscreen></iframe>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="group__members">
+                                    <div class="sidebar-friends accordion-wrap">
+                                        <h6 class="sidebar-title accordion-title">
+                                            Group members
+                                        </h6>
+                                        <div class="sidebar-friends__box accordion-box">
+                                            <div class="col-4x">
+                                                <div class="sidebar-friends__item">
+                                                    <a href="#" class="ava circle">
+                                                        <span class="group__invited">
+
+                                    </span>
+                                                        <span class="profile__group__count">
+                                        5
+                                    </span>
+                                                        <span class="vase"></span>
+                                                        <img src="images/avatar2.png" alt="">
+                                                    </a>
+                                                    <p class="name">
+                                                        Petr Ivanov
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="col-4x">
+                                                <div class="sidebar-friends__item">
+                                                    <a href="#" class="ava circle">
+                                                        <span class="vase"></span>
+                                                        <img src="images/avatar2.png" alt="">
+                                                    </a>
+                                                    <p class="name">
+                                                        Petr Ivanov
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="col-4x">
+                                                <div class="sidebar-friends__item">
+                                                    <a href="#" class="ava circle">
+                                                        <span class="vase"></span>
+                                                        <img src="images/avatar2.png" alt="">
+                                                    </a>
+                                                    <p class="name">
+                                                        Petr Ivanov
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="col-4x">
+                                                <div class="sidebar-friends__item">
+                                                    <a href="#" class="ava circle">
+                                                        <span class="vase"></span>
+                                                        <img src="images/avatar2.png" alt="">
+                                                    </a>
+                                                    <p class="name">
+                                                        Petr Ivanov
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="col-4x">
+                                                <div class="sidebar-friends__item">
+                                                    <a href="#" class="ava circle">
+                                                        <span class="vase"></span>
+                                                        <img src="images/avatar2.png" alt="">
+                                                    </a>
+                                                    <p class="name">
+                                                        Petr Ivanov
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="col-4x">
+                                                <div class="sidebar-friends__item">
+                                                    <a href="#" class="ava circle">
+                                                        <span class="vase"></span>
+                                                        <img src="images/avatar2.png" alt="">
+                                                    </a>
+                                                    <p class="name">
+                                                        Petr Ivanov
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="col-4x">
+                                                <div class="sidebar-friends__item">
+                                                    <a href="#" class="ava circle">
+                                                        <span class="vase"></span>
+                                                        <img src="images/avatar2.png" alt="">
+                                                    </a>
+                                                    <p class="name">
+                                                        Petr Ivanov
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="col-4x">
+                                                <div class="sidebar-friends__item">
+                                                    <a href="#" class="ava circle">
+                                                        <span class="vase"></span>
+                                                        <img src="images/avatar2.png" alt="">
+                                                    </a>
+                                                    <p class="name">
+                                                        Petr Ivanov
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="col-4x">
+                                                <div class="sidebar-friends__item">
+                                                    <a href="#" class="ava circle">
+                                                        <span class="vase"></span>
+                                                        <img src="images/avatar2.png" alt="">
+                                                    </a>
+                                                    <p class="name">
+                                                        Petr Ivanov
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="sidebar-cards sidebar-cards-inline">
+                                        <div class="sidebar-cards__item">
+                                            <a href="#"
+                                               data-video='https://www.youtube.com/embed/JpuWCQzgQSw?&autoplay=1'><img
+                                                    src="images/card1.png" alt=""></a>
+                                        </div>
+                                        <div class="sidebar-cards__item">
+                                            <a href="#"
+                                               data-video='https://www.youtube.com/embed/3Y83WrmysBY?&autoplay=1'><img
+                                                    src="images/card2.png" alt=""></a>
+                                        </div>
+                                        <div class="sidebar-cards__item">
+                                            <a href="#"
+                                               data-video='https://www.youtube.com/embed/ixzGpJnwyxw?&autoplay=1'><img
+                                                    src="images/card3.png" alt=""></a>
+                                        </div>
+                                    </div>
+                                    <a class="profile__btn profile__btn-center" href="/group_create.html">
+                                        Invite to the group
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="group__right group__right-nobg">
+                            <div class="group__random_video">
+                                <div class="vid">
+                                    <iframe width="100%" height="200px"
+                                            src="https://www.youtube.com/embed/jGhe7J2MJbQ" frameborder="0"
+                                            allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                            <div class="sidebar-friends__box accordion-box mCustomScrollbar _mCS_2 group__messenger">
+                                <div class="newsWrap">
+                                    <div class="newsWrap-item">
+                                        <div class="newsWrap-item__avatar">
+                                            <a href="#">
+                                                <img src="images/avatar3.png" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="newsWrap-item__content">
+                                            <div class="newsWrap-item__body">
+                                                <h6 class="title">
+                                                    Peter Ivanov
+                                                </h6>
+                                                <p class="text">
+                                                    Of Lorem Ipsum. Proin llicit gravida nibh vel velllicitit auctor
+                                                    alquet. Aenan sollicitudin, lorem quis bidsabendum auctor, nisi elit
+
+                                                </p>
+                                                <div class="vid">
+                                                    <iframe width="440" height="320"
+                                                            src="https://www.youtube.com/embed/jGhe7J2MJbQ" frameborder="0"
+                                                            allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                                </div>
+                                                <p class="soc">
+                                                    <a href="#"> Reply</a>
+                                                    <a href="#">Like</a>
+                                                </p>
+                                            </div>
+                                            <div class="newsWrap-item__comentsContainer">
+                                                <div class="newsWrap-item__comentsWrap">
+                                                    <div class="avatar newsWrap-item__avatar">
+                                                        <a href="#">
+                                                            <img src="images/avatar2.png" alt="">
+                                                        </a>
+                                                    </div>
+                                                    <div class="comentsBody">
+                                                        <h6 class="title">
+                                                            Peter Ivanov
+                                                        </h6>
+                                                        <p class="text">
+                                                            Of Lorem Ipsum. Proin llicit gravida nibh vel velllicitit
+                                                            auctor alquet. Aenan sollicitudin, lorem quis bidsabendum
+                                                            auctor, nisi elit consequat ipsum, nellicitc sagittis
+                                                            sellicitm nibh id elit. Duis sed odio sit.itm nibh id elit.
+                                                            Duis. seendum endum auctor, nisi elit consequat
+                                                            ipsum,auctor, nisi elit cons
+                                                        </p>
+                                                        <p class="soc">
+                                                            <a href="#"> Reply</a>
+                                                            <a href="#">Like</a>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="newsWrap-item__comentsWrap">
+                                                    <div class="avatar newsWrap-item__avatar">
+                                                        <a href="#">
+                                                            <img src="images/avatar3.png" alt="">
+                                                        </a>
+                                                    </div>
+                                                    <div class="comentsBody">
+                                                        <h6 class="title">
+                                                            Peter Ivanov
+                                                        </h6>
+                                                        <p class="text">
+                                                            Of Lorem Ipsum. Proin llicit gravida nibh vel velllicitit
+                                                            auctor alquet. Aenan sollicitudin, lorem quis bidsabendum
+                                                            auctor, nisi elit consequat ipsum, nellicitc sagittis
+                                                            sellicitm nibh id elit. Duis sed odio sit.itm nibh id elit.
+                                                            Duis. seendum endum auctor, nisi elit consequat
+                                                            ipsum,auctor, nisi elit cons
+                                                        </p>
+                                                        <p class="soc">
+                                                            <a href="#"> Reply</a>
+                                                            <a href="#">Like</a>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="newsWrap-item__comentsWrap">
+                                                    <div class="avatar newsWrap-item__avatar">
+                                                        <a href="#">
+                                                            <img src="images/avatar4.png" alt="">
+                                                        </a>
+                                                    </div>
+                                                    <div class="comentsBody">
+                                                        <h6 class="title">
+                                                            Peter Ivanov
+                                                        </h6>
+                                                        <p class="text">
+                                                            Of Lorem Ipsum. Proin llicit gravida nibh vel velllicitit
+                                                            auctor alquet. Aenan sollicitudin, lorem quis bidsabendum
+                                                            auctor, nisi elit consequat ipsum, nellicitc sagittis
+                                                            sellicitm nibh id elit. Duis sed odio sit.itm nibh id elit.
+                                                            Duis. seendum endum auctor, nisi elit consequat
+                                                            ipsum,auctor, nisi elit cons
+                                                        </p>
+                                                        <p class="soc">
+                                                            <a href="#"> Reply</a>
+                                                            <a href="#">Like</a>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="newsWrap-item">
+                                        <div class="newsWrap-item__avatar">
+                                            <a href="#">
+                                                <img src="images/avatar3.png" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="newsWrap-item__content">
+                                            <div class="newsWrap-item__body">
+                                                <h6 class="title">
+                                                    Peter Ivanov
+                                                </h6>
+                                                <p class="text">
+                                                    Of Lorem Ipsum. Proin llicit gravida nibh vel velllicitit auctor
+                                                    alquet. Aenan sollicitudin, lorem quis bidsabendum auctor, nisi elit
+                                                    consequat ipsum, nellicitc sagittis sellicitm nibh id elit. Duis sed
+                                                    odio sit.itm nibh id elit. Duis. seendum endum auctor, nisi elit
+                                                    consequat ipsum,auctor, nisi elit cons
+                                                </p>
+                                                <p class="soc">
+                                                    <a href="#"> Reply</a>
+                                                    <a href="#">Like</a>
+                                                </p>
+                                            </div>
+                                            <div class="newsWrap-item__comentsContainer">
+                                                <div class="newsWrap-item__comentsWrap">
+                                                    <div class="avatar newsWrap-item__avatar">
+                                                        <a href="#">
+                                                            <img src="images/avatar3.png" alt="">
+                                                        </a>
+                                                    </div>
+                                                    <div class="comentsBody">
+                                                        <h6 class="title">
+                                                            Peter Ivanov
+                                                        </h6>
+                                                        <p class="text">
+                                                            Of Lorem Ipsum. Proin llicit gravida nibh vel velllicitit
+                                                            auctor alquet. Aenan sollicitudin, lorem quis bidsabendum
+                                                            auctor, nisi elit consequat ipsum, nellicitc sagittis
+                                                            sellicitm nibh id elit. Duis sed odio sit.itm nibh id elit.
+                                                            Duis. seendum endum auctor, nisi elit consequat
+                                                            ipsum,auctor, nisi elit cons
+                                                        </p>
+                                                        <p class="soc">
+                                                            <a href="#"> Reply</a>
+                                                            <a href="#">Like</a>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <form class="formCom">
+                                        <input type="text" name="comment" class="comment" placeholder="Wrire a comment...">
+                                        <a href="#" class="smile"></a>
+                                        <label class="foto file-container"><input type="file" name="foto"></label>
+                                        <label class="file file-container"><input type="file" name="file"></label>
+                                    </form>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="content-rgt" style="display: none;">
+                    <div class="chatWrap">
+                        <div class="chatWrap-top clearfix">
+                            <div class="chatWrap-top__line"></div>
+                            <a href="#" class="chatWrap-top__arr"></a>
+                        </div>
+                        <div class="chatWrap-head">
+                            <a href="#">Private</a>
+                            <span>|</span>
+                            <a href="#">Groups</a>
+                        </div>
+                        <div class="chatWrap-items">
+                            <div class="chatWrap-messBox clearfix">
+                                <div class="chatWrap-messBox__avatar">
+                                    <a href="#">
+                                        <img src="images/avatar3.png" alt="">
+                                    </a>
+                                </div>
+                                <div class="chatWrap-messBox__text">
+                                    <h6 class="title">Peter Ivanov </h6>
+                                    <p class="mess">
+                                        Did this is Photo version hop's verve on hop's v rsion version s Of Lorem
+                                        Ipsum.
+                                        Proin llicit gravida nibh vel velllicitit auctor alquet.
+                                    </p>
+
+                                </div>
+                            </div>
+                            <div class="chatWrap-messBox clearfix">
+                                <div class="chatWrap-messBox__avatar">
+                                    <a href="#">
+                                        <img src="images/avatar3.png" alt="">
+                                    </a>
+                                </div>
+                                <div class="chatWrap-messBox__text">
+                                    <h6 class="title">Peter Ivanov </h6>
+                                    <p class="mess">
+                                        Did this is Photo version hop's verve on hop's v rsion version s Of Lorem
+                                        Ipsum.
+                                        Proin llicit gravida nibh vel velllicitit auctor alquet.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="chatWrap-messBox clearfix">
+                                <div class="chatWrap-messBox__avatar">
+                                    <a href="#">
+                                        <img src="images/avatar3.png" alt="">
+                                    </a>
+                                </div>
+                                <div class="chatWrap-messBox__text">
+                                    <h6 class="title">Peter Ivanov </h6>
+                                    <p class="mess">
+                                        Did this is Photo version hop's verve on hop's v rsion version s Of Lorem
+                                        Ipsum.
+                                        Proin llicit gravida nibh vel velllicitit auctor alquet.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="chatWrap-messBox clearfix">
+                                <div class="chatWrap-messBox__avatar">
+                                    <a href="#">
+                                        <img src="images/avatar3.png" alt="">
+                                    </a>
+                                </div>
+                                <div class="chatWrap-messBox__text">
+                                    <h6 class="title">Peter Ivanov </h6>
+                                    <p class="mess">
+                                        Did this is Photo version hop's verve on hop's v rsion version s Of Lorem
+                                        Ipsum.
+                                        Proin llicit gravida nibh vel velllicitit auctor alquet.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="chatWrap-messBox clearfix">
+                                <div class="chatWrap-messBox__avatar">
+                                    <a href="#">
+                                        <img src="images/avatar3.png" alt="">
+                                    </a>
+                                </div>
+                                <div class="chatWrap-messBox__text">
+                                    <h6 class="title">Peter Ivanov </h6>
+                                    <p class="mess">
+                                        Did this is Photo version hop's verve on hop's v rsion version s Of Lorem
+                                        Ipsum. zzz
+                                        Proin llicit gravida nibh vel velllicitit auctor alquet.
+
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="open-chat"><img src="images/open-chat.png"></a>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
