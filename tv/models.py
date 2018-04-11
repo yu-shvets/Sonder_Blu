@@ -56,7 +56,7 @@ class Movies(CommonInfo):
 class Reviews(CommonInfo):
     review = models.TextField()
     video = models.FileField(upload_to='reviews',
-                             validators=[FileExtensionValidator(allowed_extensions=['mp4', 'webm', 'mov']), file_size],
+                             validators=[FileExtensionValidator(allowed_extensions=['mp4', 'webm', 'mov', 'avi']), file_size],
                              blank=True, null=True)
     movie = models.ForeignKey(Movies, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -105,7 +105,7 @@ class Groups(CommonInfo):
 class Feedback(CommonInfo):
     feedback = models.TextField(verbose_name='feedback')
     video = models.FileField(upload_to='feedbacks',
-                             validators=[FileExtensionValidator(allowed_extensions=['mp4', 'webm', 'mov']), file_size],
+                             validators=[FileExtensionValidator(allowed_extensions=['mp4', 'webm', 'mov', 'avi']), file_size],
                              blank=True, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
