@@ -194,6 +194,6 @@ MESSAGE_TYPES_LIST = [
     MSG_TYPE_LEAVE,
 ]
 
-AUTHENTICATION_BACKENDS = ['tv.backends.UserModelEmailBackend', ]
+AUTHENTICATION_BACKENDS = ['tv.backends.UserModelEmailBackend',]
 
 ASGI_APPLICATION = "Sonder_Blu.routing.channel_routing"
