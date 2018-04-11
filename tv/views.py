@@ -22,7 +22,7 @@ class HomeView(LoginRequiredMixin, TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(HomeView, self).get_context_data(**kwargs)
-        context['movies'] = Movies.objects.all()
+        context['movie'] = Movies.objects.filter().last()
         context['groups'] = Groups.objects.all()
         context['feedback_form'] = FeedbackForm
         context['feedbacks'] = Feedback.objects.all()
