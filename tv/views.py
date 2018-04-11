@@ -40,6 +40,10 @@ class FilmView(TemplateView):
     template_name = 'tv/film.html'
 
 
+class ProfileView(TemplateView):
+    template_name = 'tv/profile.html'
+
+
 def profile(request, user_id):
     user = get_object_or_404(User, pk=user_id)
     unread_requests = [item.from_user for item in Friend.objects.unread_requests(user=user)]

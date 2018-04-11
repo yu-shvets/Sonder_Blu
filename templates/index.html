@@ -11,7 +11,10 @@
           href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+    <link rel="stylesheet" href="{% static "tv/libs/TC/readme.css" %}">
+    <link rel="stylesheet" href="{% static "tv/libs/TC/TimeCircles.css" %}">
     <link rel="stylesheet" href="{% static "tv/css/screen.css" %}">
+    <link rel="stylesheet" href="{% static "tv/css/secondary.css" %}">
 </head>
 <body>
 <header class="header">
@@ -46,13 +49,15 @@
     <a href="#" class="hide-sidebar"></a>
 </header>
 
-{% block content %}
+
     <div class="bg-one"></div>
     <div class="videoWrap">
         <iframe width="854" height="480" src="https://www.youtube.com/embed/JpuWCQzgQSw?&autoplay=1" frameborder="0"
                 allow="autoplay; encrypted-media" allowfullscreen></iframe>
         <div class="bg"></div>
     </div>
+
+    {% block content %}
     <div class="contentWrap">
         <div class="container">
             <div class="container-flex">
@@ -64,7 +69,7 @@
                                     <img src="{{ user.profile.photo.url }}" alt="avatar">
                                 </a>
                             {% endif %}
-                            <p class="name bell">{{ user.username }}</p>
+                            <p class="name bell"><a style="color:white; text-decoration: none" href="{% url 'profile_view' %}">{{ user.username }}</a></p>
                         </div>
                         <p class="sidebar-top__text ">
                             Thiiss isi Photoshoip's versssision Tf Leim Ipuim. Pem Ipuim. Porem Tfh hfd puim. Proiiin
@@ -551,8 +556,10 @@
 {% endblock content %}
 
 <script src="{% static "tv/js/jquery-3.2.1.min.js" %}"></script>
+<script src="{% static "tv/libs/bootstrap/js/bootstrap.js" %}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+<script src="{% static "tv/libs/TC/TimeCircles.js" %}"></script>
 <script src="{% static "tv/js/js.js" %}"></script>
 <script type="text/javascript" src='{% static "multichat/js/multichat.js" %}'></script>
 <script type="text/javascript" src='{% static "multichat/js/reconnecting-websocket.min.js" %}'></script>

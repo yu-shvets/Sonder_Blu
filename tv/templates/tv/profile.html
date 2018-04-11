@@ -1,0 +1,858 @@
+{% load static from staticfiles %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>MVP TV</title>
+    <meta name="viewport" content="width=device-width"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+    <link rel="stylesheet" href="{% static "tv/libs/TC/readme.css" %}">
+    <link rel="stylesheet" href="{% static "tv/libs/TC/TimeCircles.css" %}">
+    <link rel="stylesheet" href="{% static "tv/css/screen.css" %}">
+    <link rel="stylesheet" href="{% static "tv/css/secondary.css" %}">
+    <!--<link rel="stylesheet" href="libs/bootstrap/css/bootstrap.css">-->
+</head>
+<body class="sidebar-close profile">
+<header class="header">
+    <div class="container">
+        <div class="header-box">
+            <div class="header-logo">
+                <a href="{% url 'home' %}">
+                    <img src="{% static "tv/images/logo.png" %}" alt="placeholder+image">
+                </a>
+            </div>
+            <div class="header-icons">
+                <a href="#" class="header-icons__item item1" data-text='Home'></a>
+                <a href="#" class="header-icons__item item2" data-text='Screening Room Groups'></a>
+                <a href="#" class="header-icons__item item3" data-text='Watch together'></a>
+                <a href="#" class="header-icons__item item4" data-text='Scheduled films'></a>
+            </div>
+            <form class="header-serch">
+                <input type="text" name="serch">
+                <button class="header-serch__btn"></button>
+            </form>
+            <div class="header-logIn">
+                <a class="header-logIn__item in" href="{% url 'search_view' %}">Search</a>
+                <a href="{% url "accounts:auth_login" %}" class="header-logIn__item in">Login</a>
+                <span>|</span>
+                <a href="{% url "accounts:auth_logout" %}" class="header-logIn__item out">Logout</a>
+                <a href="#" class="header-logIn__item set"></a>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="hide-sidebar"></a>
+</header>
+<div class="bg-one"></div>
+<div class="contentWrap">
+    <div class="container">
+        <div class="container-flex">
+            <div class="sidebar hide">
+                <div class="sidebar-top">
+                    <div class="sidebar-top__box">
+                        {% if user.profile.photo %}
+                                <a href="#" class="avatar">
+                                    <img src="{{ user.profile.photo.url }}" alt="avatar">
+                                </a>
+                            {% endif %}
+                        <p class="name bell">{{ user.username }}</p>
+                    </div>
+                    <p class="sidebar-top__text ">
+                        Thiiss isi Photoshoip's versssision Tf Leim Ipuim. Pem Ipuim. Porem Tfh hfd puim. Proiiin
+                        gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi
+                        elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate
+                        cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a
+                        ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu
+                        ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac
+                        urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi.
+                        Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris
+                        egestas quam, ut aliquam massa nisl quis neque. Suspendisse in orci enim.
+                    </p>
+                </div>
+                <div class="sidebar-friends accordion-wrap">
+                    <h6 class="sidebar-title accordion-title">
+                        Friends
+                    </h6>
+                    <div class="sidebar-friends__box accordion-box">
+                        <div class="col-3x">
+                            <div class="sidebar-friends__item">
+                                <a href="#" class="ava circle">
+                                    <span class="vase"></span>
+                                    <img src="images/avatar2.png" alt="">
+                                </a>
+                                <p class="name">
+                                    Petr Ivanov
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-3x">
+                            <div class="sidebar-friends__item">
+                                <a href="#" class="ava circle">
+                                    <span class="vase"></span>
+                                    <img src="images/avatar2.png" alt="">
+                                </a>
+                                <p class="name">
+                                    Petr Ivanov
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-3x">
+                            <div class="sidebar-friends__item">
+                                <a href="#" class="ava circle">
+                                    <span class="vase"></span>
+                                    <img src="images/avatar2.png" alt="">
+                                </a>
+                                <p class="name">
+                                    Petr Ivanov
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-3x">
+                            <div class="sidebar-friends__item">
+                                <a href="#" class="ava circle">
+                                    <span class="vase"></span>
+                                    <img src="images/avatar2.png" alt="">
+                                </a>
+                                <p class="name">
+                                    Petr Ivanov
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-3x">
+                            <div class="sidebar-friends__item">
+                                <a href="#" class="ava circle">
+                                    <span class="vase"></span>
+                                    <img src="images/avatar2.png" alt="">
+                                </a>
+                                <p class="name">
+                                    Petr Ivanov
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-3x">
+                            <div class="sidebar-friends__item">
+                                <a href="#" class="ava circle">
+                                    <span class="vase"></span>
+                                    <img src="images/avatar2.png" alt="">
+                                </a>
+                                <p class="name">
+                                    Petr Ivanov
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-3x">
+                            <div class="sidebar-friends__item">
+                                <a href="#" class="ava circle">
+                                    <span class="vase"></span>
+                                    <img src="images/avatar2.png" alt="">
+                                </a>
+                                <p class="name">
+                                    Petr Ivanov
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar-cards">
+                    <div class="sidebar-cards__item">
+                        <a href="#" data-video='https://www.youtube.com/embed/JpuWCQzgQSw?&autoplay=1'><img
+                                src="images/card1.png" alt=""></a>
+                    </div>
+                    <div class="sidebar-cards__item">
+                        <a href="#" data-video='https://www.youtube.com/embed/3Y83WrmysBY?&autoplay=1'><img
+                                src="images/card2.png" alt=""></a>
+                    </div>
+                    <div class="sidebar-cards__item">
+                        <a href="#" data-video='https://www.youtube.com/embed/ixzGpJnwyxw?&autoplay=1'><img
+                                src="images/card3.png" alt=""></a>
+                    </div>
+                </div>
+                <a href="#" class="sidebar-recomend">Recommended friends</a>
+                <div class="sidebar-groups accordion-wrap">
+                    <h6 class="sidebar-title accordion-title">
+                        Groups
+                    </h6>
+                    <div class="sidebar-groups__box accordion-box">
+                        <div class="col-3x">
+                            <div class="sidebar-groups__item">
+                                <div class="avatar">
+                                    <a href="#"><img src="images/avatar3.png" alt=""></a>
+                                </div>
+                                <p class="name">
+                                    Group 1
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-3x">
+                            <div class="sidebar-groups__item">
+                                <div class="avatar">
+                                    <a href="#"><img src="images/avatar3.png" alt=""></a>
+                                </div>
+                                <p class="name">
+                                    Group 1
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-3x">
+                            <div class="sidebar-groups__item">
+                                <div class="avatar">
+                                    <a href="#"><img src="images/avatar3.png" alt=""></a>
+                                </div>
+                                <p class="name">
+                                    Group 1
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-3x">
+                            <div class="sidebar-groups__item">
+                                <div class="avatar">
+                                    <a href="#"><img src="images/avatar3.png" alt=""></a>
+                                </div>
+                                <p class="name">
+                                    Group 1
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-3x">
+                            <div class="sidebar-groups__item">
+                                <div class="avatar">
+                                    <a href="#"><img src="images/avatar3.png" alt=""></a>
+                                </div>
+                                <p class="name">
+                                    Group 1
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-3x">
+                            <div class="sidebar-groups__item">
+                                <div class="avatar">
+                                    <a href="#"><img src="images/avatar3.png" alt=""></a>
+                                </div>
+                                <p class="name">
+                                    Group 1
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="sidebar-recomend recomend-groups">Recommended groups</a>
+            </div>
+            <!--content-->
+            <div class="content">
+                <div class="content-left">
+                    <div class="profile__wrapper">
+                        <div class="profile__left">
+                            <div class="profile__header">
+                                <div class="profile__avatar">
+                                    {% if user.profile.photo %}
+                                    <img src="{{ user.profile.photo.url }}">
+                                    {% endif %}
+                                    <a class="profile__invite" href="#">
+                                        +
+                                    </a>
+                                </div>
+                                <div class="profile__line">
+                                    <p class="bold-text">
+                                        {{ user.username }}
+                                    </p>
+                                    <p class="custom-text">
+                                        {{ user.email }}
+                                    </p>
+                                </div>
+                                <div class="profile__line">
+									<span class="profile__count">
+										4
+									</span>
+                                    <a class="profile__btn" href="#">
+                                        Invite to movie
+                                    </a>
+                                </div>
+                                <div class="profile__info">
+                                    <a href="#" class="profile__btn-dark">
+                                        December 3, 1989
+                                    </a>
+                                    <a href="mailto:azaza@ukr.net" class="profile__btn-dark profile__btn-middle">
+                                        {{ user.email }}
+                                    </a>
+                                    <a href="#" class="profile__btn-dark profile__message">
+                                        <img src="{% static 'tv/images/mail.png' %}" class="profile__icon">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="profile__bio">
+                                <p>
+                                    Bio:<br>This is Photosh op's version of Lorem Ipsum. Proin gra tr vidoa nibh vel
+                                    velit
+                                    auctor aliquet. Aenean sollicitudin, lorem qtr tiiuis bibe ndum auctor, nisi elit
+                                    cons equat ipsum, nec sagittis iseiim<br>
+
+                                    nibh id elit. Duis sed odio sit amet nibh vulpuf didtate cursus a sit amet mauris.
+                                    Morbi accum dfgd san ips fium velit . Nam nec teltlus a odio tin cidunt auctor a
+                                    ornare odio. Sed n fon mauris
+                                </p>
+                            </div>
+                        </div>
+                        <div class="profile__right">
+                            <div class="profile__top">
+
+
+                                <div class="tabs">
+                                    <ul class="nav nav-pills nav-justified" role="tablist" data-tabs="tabs">
+                                        <li class="custom-tab__item custom-tab__item-pointer"><a
+                                                class="custom-tab__link"
+                                                data-toggle="tab" aria-expanded="false"> Top
+                                            5:</a></li>
+                                        <li class="custom-tab__item active"><a class="custom-tab__link" href="#actor"
+                                                                               data-toggle="tab" aria-expanded="false">Actor</a>
+                                        </li>
+                                        <li class="custom-tab__item"><a class="custom-tab__link" href="#actress"
+                                                                        data-toggle="tab"
+                                                                        aria-expanded="false">Actress</a>
+                                        </li>
+                                        <li class="custom-tab__item"><a class="custom-tab__link" href="#director"
+                                                                        data-toggle="tab"
+                                                                        aria-expanded="false">Director</a>
+                                        </li>
+                                        <li class="custom-tab__item"><a class="custom-tab__link" href="#movie"
+                                                                        data-toggle="tab"
+                                                                        aria-expanded="false">Movie</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="tab-content">
+                                    <div role="tabpanel" class="tab-pane fade in active" id="actor">
+                                        <div class="sidebar-friends__box accordion-box profile__flex profile__scroll-mini">
+                                            <div class="col-2x profile__flex profile__video__item">
+                                                <div class="col-2x profile__prevideo">
+                                                    <iframe width="200" height="200"
+                                                            src="https://www.youtube.com/embed/jGhe7J2MJbQ"
+                                                            frameborder="0"
+                                                            allow="autoplay; encrypted-media"
+                                                            allowfullscreen=""></iframe>
+                                                </div>
+                                                <div class="col-2x profile__pretext">
+                                                    <p class="profile__preh1">Fave Actor</p>
+                                                    <p>This is Photo fggshop's version of Lofg fir fiem Ipsum. Proin gfd
+                                                        dra
+                                                        fd vida nibh vel veli fduoit auctor aliqu fd deii f fit. Aenean
+                                                        so
+                                                        icitu fd rdin</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-2x profile__flex profile__video__item">
+                                                <div class="col-2x profile__prevideo">
+                                                    <iframe width="200" height="200"
+                                                            src="https://www.youtube.com/embed/jGhe7J2MJbQ"
+                                                            frameborder="0"
+                                                            allow="autoplay; encrypted-media"
+                                                            allowfullscreen=""></iframe>
+                                                </div>
+                                                <div class="col-2x profile__pretext">
+                                                    <p class="profile__preh1">Fave Actor</p>
+                                                    <p>This is Photo fggshop's version of Lofg fir fiem Ipsum. Proin gfd
+                                                        dra
+                                                        fd vida nibh vel veli fduoit auctor aliqu fd deii f fit. Aenean
+                                                        so
+                                                        icitu fd rdin</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-2x profile__flex profile__video__item">
+                                                <div class="col-2x profile__prevideo">
+                                                    <iframe width="200" height="200"
+                                                            src="https://www.youtube.com/embed/jGhe7J2MJbQ"
+                                                            frameborder="0"
+                                                            allow="autoplay; encrypted-media"
+                                                            allowfullscreen=""></iframe>
+                                                </div>
+                                                <div class="col-2x profile__pretext">
+                                                    <p class="profile__preh1">Fave Actor</p>
+                                                    <p>This is Photo fggshop's version of Lofg fir fiem Ipsum. Proin gfd
+                                                        dra
+                                                        fd vida nibh vel veli fduoit auctor aliqu fd deii f fit. Aenean
+                                                        so
+                                                        icitu fd rdin</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane fade" id="actress">
+                                        <div class="sidebar-friends__box accordion-box profile__flex profile__scroll-mini">
+                                            <div class="col-2x profile__flex profile__video__item">
+                                                <div class="col-2x profile__prevideo">
+                                                    <iframe width="200" height="200"
+                                                            src="https://www.youtube.com/embed/jGhe7J2MJbQ"
+                                                            frameborder="0"
+                                                            allow="autoplay; encrypted-media"
+                                                            allowfullscreen=""></iframe>
+                                                </div>
+                                                <div class="col-2x profile__pretext">
+                                                    <p class="profile__preh1">Fave Actor</p>
+                                                    <p>This is Photo fggshop's version of Lofg fir fiem Ipsum. Proin gfd
+                                                        dra
+                                                        fd vida nibh vel veli fduoit auctor aliqu fd deii f fit. Aenean
+                                                        so
+                                                        icitu fd rdin</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-2x profile__flex profile__video__item">
+                                                <div class="col-2x profile__prevideo">
+                                                    <iframe width="200" height="200"
+                                                            src="https://www.youtube.com/embed/jGhe7J2MJbQ"
+                                                            frameborder="0"
+                                                            allow="autoplay; encrypted-media"
+                                                            allowfullscreen=""></iframe>
+                                                </div>
+                                                <div class="col-2x profile__pretext">
+                                                    <p class="profile__preh1">Fave Actor</p>
+                                                    <p>This is Photo fggshop's version of Lofg fir fiem Ipsum. Proin gfd
+                                                        dra
+                                                        fd vida nibh vel veli fduoit auctor aliqu fd deii f fit. Aenean
+                                                        so
+                                                        icitu fd rdin</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-2x profile__flex profile__video__item">
+                                                <div class="col-2x profile__prevideo">
+                                                    <iframe width="200" height="200"
+                                                            src="https://www.youtube.com/embed/jGhe7J2MJbQ"
+                                                            frameborder="0"
+                                                            allow="autoplay; encrypted-media"
+                                                            allowfullscreen=""></iframe>
+                                                </div>
+                                                <div class="col-2x profile__pretext">
+                                                    <p class="profile__preh1">Fave Actor</p>
+                                                    <p>This is Photo fggshop's version of Lofg fir fiem Ipsum. Proin gfd
+                                                        dra
+                                                        fd vida nibh vel veli fduoit auctor aliqu fd deii f fit. Aenean
+                                                        so
+                                                        icitu fd rdin</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane fade" id="director">
+                                        <div class="sidebar-friends__box accordion-box profile__flex profile__scroll-mini">
+                                            <div class="col-2x profile__flex profile__video__item">
+                                                <div class="col-2x profile__prevideo">
+                                                    <iframe width="200" height="200"
+                                                            src="https://www.youtube.com/embed/jGhe7J2MJbQ"
+                                                            frameborder="0"
+                                                            allow="autoplay; encrypted-media"
+                                                            allowfullscreen=""></iframe>
+                                                </div>
+                                                <div class="col-2x profile__pretext">
+                                                    <p class="profile__preh1">Fave Actor</p>
+                                                    <p>This is Photo fggshop's version of Lofg fir fiem Ipsum. Proin gfd
+                                                        dra
+                                                        fd vida nibh vel veli fduoit auctor aliqu fd deii f fit. Aenean
+                                                        so
+                                                        icitu fd rdin</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-2x profile__flex profile__video__item">
+                                                <div class="col-2x profile__prevideo">
+                                                    <iframe width="200" height="200"
+                                                            src="https://www.youtube.com/embed/jGhe7J2MJbQ"
+                                                            frameborder="0"
+                                                            allow="autoplay; encrypted-media"
+                                                            allowfullscreen=""></iframe>
+                                                </div>
+                                                <div class="col-2x profile__pretext">
+                                                    <p class="profile__preh1">Fave Actor</p>
+                                                    <p>This is Photo fggshop's version of Lofg fir fiem Ipsum. Proin gfd
+                                                        dra
+                                                        fd vida nibh vel veli fduoit auctor aliqu fd deii f fit. Aenean
+                                                        so
+                                                        icitu fd rdin</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-2x profile__flex profile__video__item">
+                                                <div class="col-2x profile__prevideo">
+                                                    <iframe width="200" height="200"
+                                                            src="https://www.youtube.com/embed/jGhe7J2MJbQ"
+                                                            frameborder="0"
+                                                            allow="autoplay; encrypted-media"
+                                                            allowfullscreen=""></iframe>
+                                                </div>
+                                                <div class="col-2x profile__pretext">
+                                                    <p class="profile__preh1">Fave Actor</p>
+                                                    <p>This is Photo fggshop's version of Lofg fir fiem Ipsum. Proin gfd
+                                                        dra
+                                                        fd vida nibh vel veli fduoit auctor aliqu fd deii f fit. Aenean
+                                                        so
+                                                        icitu fd rdin</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane fade" id="movie">
+                                        <div class="sidebar-friends__box accordion-box profile__flex profile__scroll-mini">
+                                            <div class="col-2x profile__flex profile__video__item">
+                                                <div class="col-2x profile__prevideo">
+                                                    <iframe width="200" height="200"
+                                                            src="https://www.youtube.com/embed/jGhe7J2MJbQ"
+                                                            frameborder="0"
+                                                            allow="autoplay; encrypted-media"
+                                                            allowfullscreen=""></iframe>
+                                                </div>
+                                                <div class="col-2x profile__pretext">
+                                                    <p class="profile__preh1">Fave Actor</p>
+                                                    <p>This is Photo fggshop's version of Lofg fir fiem Ipsum. Proin gfd
+                                                        dra
+                                                        fd vida nibh vel veli fduoit auctor aliqu fd deii f fit. Aenean
+                                                        so
+                                                        icitu fd rdin</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-2x profile__flex profile__video__item">
+                                                <div class="col-2x profile__prevideo">
+                                                    <iframe width="200" height="200"
+                                                            src="https://www.youtube.com/embed/jGhe7J2MJbQ"
+                                                            frameborder="0"
+                                                            allow="autoplay; encrypted-media"
+                                                            allowfullscreen=""></iframe>
+                                                </div>
+                                                <div class="col-2x profile__pretext">
+                                                    <p class="profile__preh1">Fave Actor</p>
+                                                    <p>This is Photo fggshop's version of Lofg fir fiem Ipsum. Proin gfd
+                                                        dra
+                                                        fd vida nibh vel veli fduoit auctor aliqu fd deii f fit. Aenean
+                                                        so
+                                                        icitu fd rdin</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-2x profile__flex profile__video__item">
+                                                <div class="col-2x profile__prevideo">
+                                                    <iframe width="200" height="200"
+                                                            src="https://www.youtube.com/embed/jGhe7J2MJbQ"
+                                                            frameborder="0"
+                                                            allow="autoplay; encrypted-media"
+                                                            allowfullscreen=""></iframe>
+                                                </div>
+                                                <div class="col-2x profile__pretext">
+                                                    <p class="profile__preh1">Fave Actor</p>
+                                                    <p>This is Photo fggshop's version of Lofg fir fiem Ipsum. Proin gfd
+                                                        dra
+                                                        fd vida nibh vel veli fduoit auctor aliqu fd deii f fit. Aenean
+                                                        so
+                                                        icitu fd rdin</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="profile__reviews">
+                                <div class="tabs">
+                                    <ul class="nav nav-pills nav-justified" role="tablist" data-tabs="tabs">
+                                        <li class="custom-tab__item custom-tab__item-pointer"><a
+                                                class="custom-tab__link"
+                                                data-toggle="tab" aria-expanded="false">My Reviews sort by:</a></li>
+                                        <li class="custom-tab__item active"><a class="custom-tab__link" href="#time"
+                                                                               data-toggle="tab" aria-expanded="false">Time
+                                            added</a>
+                                        </li>
+                                        <li class="custom-tab__item"><a class="custom-tab__link" href="#likes"
+                                                                        data-toggle="tab"
+                                                                        aria-expanded="false">Likes</a>
+                                        </li>
+                                        <li class="custom-tab__item"><a class="custom-tab__link" href="#shared"
+                                                                        data-toggle="tab"
+                                                                        aria-expanded="false">Shared</a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                                <div class="tab-content">
+                                    <div role="tabpanel" class="tab-pane fade in active" id="time">
+                                        <div class="sidebar-friends__box accordion-box profile__flex profile__scroll-big">
+                                            <div class="profile__flex profile__video__item">
+                                                <div class="col-3x profile__prevideo profile__prevideo-big profile__video__item">
+                                                    <iframe width="270" height="200"
+                                                            src="https://www.youtube.com/embed/jGhe7J2MJbQ"
+                                                            frameborder="0"
+                                                            allow="autoplay; encrypted-media"
+                                                            allowfullscreen=""></iframe>
+                                                </div>
+                                                <div class="col-3x profile__prevideo profile__prevideo-big profile__video__item">
+                                                    <iframe width="270" height="200"
+                                                            src="https://www.youtube.com/embed/jGhe7J2MJbQ"
+                                                            frameborder="0"
+                                                            allow="autoplay; encrypted-media"
+                                                            allowfullscreen=""></iframe>
+                                                </div>
+                                                <div class="col-3x profile__prevideo profile__prevideo-big profile__video__item">
+                                                    <iframe width="270" height="200"
+                                                            src="https://www.youtube.com/embed/jGhe7J2MJbQ"
+                                                            frameborder="0"
+                                                            allow="autoplay; encrypted-media"
+                                                            allowfullscreen=""></iframe>
+                                                </div>
+                                                <div class="col-3x profile__prevideo profile__prevideo-big profile__video__item">
+                                                    <iframe width="270" height="200"
+                                                            src="https://www.youtube.com/embed/jGhe7J2MJbQ"
+                                                            frameborder="0"
+                                                            allow="autoplay; encrypted-media"
+                                                            allowfullscreen=""></iframe>
+                                                </div>
+                                                <div class="col-3x profile__prevideo profile__prevideo-big profile__video__item">
+                                                    <iframe width="270" height="200"
+                                                            src="https://www.youtube.com/embed/jGhe7J2MJbQ"
+                                                            frameborder="0"
+                                                            allow="autoplay; encrypted-media"
+                                                            allowfullscreen=""></iframe>
+                                                </div>
+                                                <div class="col-3x profile__prevideo profile__prevideo-big profile__video__item">
+                                                    <iframe width="270" height="200"
+                                                            src="https://www.youtube.com/embed/jGhe7J2MJbQ"
+                                                            frameborder="0"
+                                                            allow="autoplay; encrypted-media"
+                                                            allowfullscreen=""></iframe>
+                                                </div>
+                                                <div class="col-3x profile__prevideo profile__prevideo-big profile__video__item">
+                                                    <iframe width="270" height="200"
+                                                            src="https://www.youtube.com/embed/jGhe7J2MJbQ"
+                                                            frameborder="0"
+                                                            allow="autoplay; encrypted-media"
+                                                            allowfullscreen=""></iframe>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane fade" id="likes">
+                                        <div class="sidebar-friends__box accordion-box profile__flex profile__scroll-big">
+                                            <div class="profile__flex profile__video__item">
+                                                <div class="col-3x profile__prevideo profile__prevideo-big profile__video__item">
+                                                    <iframe width="270" height="200"
+                                                            src="https://www.youtube.com/embed/jGhe7J2MJbQ"
+                                                            frameborder="0"
+                                                            allow="autoplay; encrypted-media"
+                                                            allowfullscreen=""></iframe>
+                                                </div>
+                                                <div class="col-3x profile__prevideo profile__prevideo-big profile__video__item">
+                                                    <iframe width="270" height="200"
+                                                            src="https://www.youtube.com/embed/jGhe7J2MJbQ"
+                                                            frameborder="0"
+                                                            allow="autoplay; encrypted-media"
+                                                            allowfullscreen=""></iframe>
+                                                </div>
+                                                <div class="col-3x profile__prevideo profile__prevideo-big profile__video__item">
+                                                    <iframe width="270" height="200"
+                                                            src="https://www.youtube.com/embed/jGhe7J2MJbQ"
+                                                            frameborder="0"
+                                                            allow="autoplay; encrypted-media"
+                                                            allowfullscreen=""></iframe>
+                                                </div>
+                                                <div class="col-3x profile__prevideo profile__prevideo-big profile__video__item">
+                                                    <iframe width="270" height="200"
+                                                            src="https://www.youtube.com/embed/jGhe7J2MJbQ"
+                                                            frameborder="0"
+                                                            allow="autoplay; encrypted-media"
+                                                            allowfullscreen=""></iframe>
+                                                </div>
+                                                <div class="col-3x profile__prevideo profile__prevideo-big profile__video__item">
+                                                    <iframe width="270" height="200"
+                                                            src="https://www.youtube.com/embed/jGhe7J2MJbQ"
+                                                            frameborder="0"
+                                                            allow="autoplay; encrypted-media"
+                                                            allowfullscreen=""></iframe>
+                                                </div>
+                                                <div class="col-3x profile__prevideo profile__prevideo-big profile__video__item">
+                                                    <iframe width="270" height="200"
+                                                            src="https://www.youtube.com/embed/jGhe7J2MJbQ"
+                                                            frameborder="0"
+                                                            allow="autoplay; encrypted-media"
+                                                            allowfullscreen=""></iframe>
+                                                </div>
+                                                <div class="col-3x profile__prevideo profile__prevideo-big profile__video__item">
+                                                    <iframe width="270" height="200"
+                                                            src="https://www.youtube.com/embed/jGhe7J2MJbQ"
+                                                            frameborder="0"
+                                                            allow="autoplay; encrypted-media"
+                                                            allowfullscreen=""></iframe>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane fade" id="shared">
+                                        <div class="sidebar-friends__box accordion-box profile__flex profile__scroll-big">
+                                            <div class="profile__flex profile__video__item">
+                                                <div class="col-3x profile__prevideo profile__prevideo-big profile__video__item">
+                                                    <iframe width="270" height="200"
+                                                            src="https://www.youtube.com/embed/jGhe7J2MJbQ"
+                                                            frameborder="0"
+                                                            allow="autoplay; encrypted-media"
+                                                            allowfullscreen=""></iframe>
+                                                </div>
+                                                <div class="col-3x profile__prevideo profile__prevideo-big profile__video__item">
+                                                    <iframe width="270" height="200"
+                                                            src="https://www.youtube.com/embed/jGhe7J2MJbQ"
+                                                            frameborder="0"
+                                                            allow="autoplay; encrypted-media"
+                                                            allowfullscreen=""></iframe>
+                                                </div>
+                                                <div class="col-3x profile__prevideo profile__prevideo-big profile__video__item">
+                                                    <iframe width="270" height="200"
+                                                            src="https://www.youtube.com/embed/jGhe7J2MJbQ"
+                                                            frameborder="0"
+                                                            allow="autoplay; encrypted-media"
+                                                            allowfullscreen=""></iframe>
+                                                </div>
+                                                <div class="col-3x profile__prevideo profile__prevideo-big profile__video__item">
+                                                    <iframe width="270" height="200"
+                                                            src="https://www.youtube.com/embed/jGhe7J2MJbQ"
+                                                            frameborder="0"
+                                                            allow="autoplay; encrypted-media"
+                                                            allowfullscreen=""></iframe>
+                                                </div>
+                                                <div class="col-3x profile__prevideo profile__prevideo-big profile__video__item">
+                                                    <iframe width="270" height="200"
+                                                            src="https://www.youtube.com/embed/jGhe7J2MJbQ"
+                                                            frameborder="0"
+                                                            allow="autoplay; encrypted-media"
+                                                            allowfullscreen=""></iframe>
+                                                </div>
+                                                <div class="col-3x profile__prevideo profile__prevideo-big profile__video__item">
+                                                    <iframe width="270" height="200"
+                                                            src="https://www.youtube.com/embed/jGhe7J2MJbQ"
+                                                            frameborder="0"
+                                                            allow="autoplay; encrypted-media"
+                                                            allowfullscreen=""></iframe>
+                                                </div>
+                                                <div class="col-3x profile__prevideo profile__prevideo-big profile__video__item">
+                                                    <iframe width="270" height="200"
+                                                            src="https://www.youtube.com/embed/jGhe7J2MJbQ"
+                                                            frameborder="0"
+                                                            allow="autoplay; encrypted-media"
+                                                            allowfullscreen=""></iframe>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-rgt" style="display: none;">
+                    <div class="chatWrap">
+                        <div class="chatWrap-top clearfix">
+                            <div class="chatWrap-top__line"></div>
+                            <a href="#" class="chatWrap-top__arr"></a>
+                        </div>
+                        <div class="chatWrap-head">
+                            <a href="#">Private</a>
+                            <span>|</span>
+                            <a href="#">Groups</a>
+                        </div>
+                        <div class="chatWrap-items">
+                            <div class="chatWrap-messBox clearfix">
+                                <div class="chatWrap-messBox__avatar">
+                                    <a href="#">
+                                        <img src="{% static "tv/images/avatar3.png" %}" alt="">
+                                    </a>
+                                </div>
+                                <div class="chatWrap-messBox__text">
+                                    <h6 class="title">Peter Ivanov </h6>
+                                    <p class="mess">
+                                        Did this is Photo version hop's verve on hop's v rsion version s Of Lorem
+                                        Ipsum.
+                                        Proin llicit gravida nibh vel velllicitit auctor alquet.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="chatWrap-messBox clearfix">
+                                <div class="chatWrap-messBox__avatar">
+                                    <a href="#">
+                                        <img src="{% static "tv/images/avatar3.png" %}" alt="">
+                                    </a>
+                                </div>
+                                <div class="chatWrap-messBox__text">
+                                    <h6 class="title">Peter Ivanov </h6>
+                                    <p class="mess">
+                                        Did this is Photo version hop's verve on hop's v rsion version s Of Lorem
+                                        Ipsum.
+                                        Proin llicit gravida nibh vel velllicitit auctor alquet.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="chatWrap-messBox clearfix">
+                                <div class="chatWrap-messBox__avatar">
+                                    <a href="#">
+                                        <img src="{% static "tv/images/avatar3.png" %}" alt="">
+                                    </a>
+                                </div>
+                                <div class="chatWrap-messBox__text">
+                                    <h6 class="title">Peter Ivanov </h6>
+                                    <p class="mess">
+                                        Did this is Photo version hop's verve on hop's v rsion version s Of Lorem
+                                        Ipsum.
+                                        Proin llicit gravida nibh vel velllicitit auctor alquet.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="chatWrap-messBox clearfix">
+                                <div class="chatWrap-messBox__avatar">
+                                    <a href="#">
+                                        <img src="{% static "tv/images/avatar3.png" %}" alt="">
+                                    </a>
+                                </div>
+                                <div class="chatWrap-messBox__text">
+                                    <h6 class="title">Peter Ivanov </h6>
+                                    <p class="mess">
+                                        Did this is Photo version hop's verve on hop's v rsion version s Of Lorem
+                                        Ipsum.
+                                        Proin llicit gravida nibh vel velllicitit auctor alquet.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="chatWrap-messBox clearfix">
+                                <div class="chatWrap-messBox__avatar">
+                                    <a href="#">
+                                        <img src="{% static "tv/images/avatar3.png" %}" alt="">
+                                    </a>
+                                </div>
+                                <div class="chatWrap-messBox__text">
+                                    <h6 class="title">Peter Ivanov </h6>
+                                    <p class="mess">
+                                        Did this is Photo version hop's verve on hop's v rsion version s Of Lorem
+                                        Ipsum.
+                                        Proin llicit gravida nibh vel velllicitit auctor alquet.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#" class="open-chat"><img src="{% static "tv/images/open-chat.png" %}"></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{% static "tv/js/jquery-3.2.1.min.js" %}"></script>
+<script src="{% static "tv/libs/bootstrap/js/bootstrap.js" %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+<script src="{% static "tv/libs/TC/TimeCircles.js" %}"></script>
+<script src="{% static "tv/js/js.js" %}"></script>
+<script>
+    $(function () {
+    $('.profile__message').on('click',function(event){
+        /* Act on the event */
+        event.preventDefault();
+        $('.open-chat').trigger('click');
+
+    });
+    });
+
+
+</script>
+</body>
+</html>
