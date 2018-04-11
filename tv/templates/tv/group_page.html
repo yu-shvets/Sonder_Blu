@@ -52,11 +52,13 @@
             <div class="sidebar hide">
                 <div class="sidebar-top">
                     <div class="sidebar-top__box">
-                        <a href="#" class="avatar">
-                            <img src="images/avatar1.png" alt="avatar">
-                        </a>
-                        <p class="name bell">Petr Ivanov</p>
-                    </div>
+                            {% if user.profile.photo %}
+                                <a href="#" class="avatar">
+                                    <img src="{{ user.profile.photo.url }}" alt="avatar">
+                                </a>
+                            {% endif %}
+                            <p class="name bell"><a style="color:white; text-decoration: none" href="{% url 'profile_view' %}">{{ user.username }}</a></p>
+                        </div>
                     <p class="sidebar-top__text ">
                         Thiiss isi Photoshoip's versssision Tf Leim Ipuim. Pem Ipuim. Porem Tfh hfd puim. Proiiin
                         gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi

@@ -79,6 +79,7 @@ class UserProfiles(CommonInfo):
     photo = models.ImageField(upload_to='users/photos', blank=True, null=True)
     friends = models.ManyToManyField('self', blank=True)
     favorites = models.ManyToManyField(Movies, blank=True)
+    bio = models.TextField(blank=True, null=True)
 
     class Meta(CommonInfo.Meta):
         verbose_name = "User Profile"
