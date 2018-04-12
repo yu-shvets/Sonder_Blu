@@ -40,6 +40,7 @@ class Movies(CommonInfo):
     category = models.ManyToManyField(Category, blank=True)
     likes = models.ManyToManyField(User, related_name="likes", blank=True)
     showtime = models.DateTimeField(blank=True, null=True)
+    source = models.CharField(max_length=256, blank=True, default='')
 
     class Meta(CommonInfo.Meta):
         verbose_name = "Movie"

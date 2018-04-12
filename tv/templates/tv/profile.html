@@ -276,9 +276,11 @@
                                 </div>
                             </div>
                             <div class="profile__bio">
+                                {% if user.profile.bio %}
                                 <p style="text-align: justify">
                                     Bio:<br>{{ user.profile.bio }}
                                 </p>
+                                {% endif %}
                             </div>
                         </div>
                         <div class="profile__right">

@@ -70,9 +70,11 @@
                             {% endif %}
                             <p class="name bell"><a style="color:white; text-decoration: none" href="{% url 'profile_view' %}">{{ user.username }}</a></p>
                         </div>
+                        {% if user.profile.bio %}
                         <p class="sidebar-top__text ">
                             {{ user.profile.bio }}
                         </p>
+                        {% endif %}
                     </div>
                     <div class="sidebar-friends accordion-wrap">
                         <h6 class="sidebar-title accordion-title">
