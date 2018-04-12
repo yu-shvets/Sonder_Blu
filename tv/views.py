@@ -27,6 +27,7 @@ class HomeView(LoginRequiredMixin, TemplateView):
         context['feedback_form'] = FeedbackForm
         context['feedbacks'] = Feedback.objects.all()
         context['review_form'] = ReviewForm
+        context['friends'] = Friend.objects.friends(self.request.user)
         if not self.request.user.is_anonymous:
             context['sent_requests'] = [item.to_user for item in Friend.objects.sent_requests(user=self.request.user)]
         return context

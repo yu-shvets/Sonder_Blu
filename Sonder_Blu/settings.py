@@ -153,15 +153,13 @@ LOGIN_URL = 'accounts:auth_login'
 LOGOUT_URL = 'accounts:auth_logout'
 
 
-redis_host = os.environ.get('REDIS_HOST', '159.65.237.170')
-
 CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "asgi_redis.RedisChannelLayer",
         "CONFIG": {
-            "hosts": [('redis_host', 6379)],
+            "hosts": [os.environ.get('REDIS_URL', 'redis://159.65.237.170:6379')],
         },
-        "ROUTING": "Sonder_Blu.routing.channel_routing",
+        "ROUTING": "chat.routing.channel_routing",
     },
 }
 
@@ -195,4 +193,4 @@ MESSAGE_TYPES_LIST = [
 
 AUTHENTICATION_BACKENDS = ['tv.backends.UserModelEmailBackend',]
 
-ASGI_APPLICATION = "Sonder_Blu.routing.channel_routing"
+
