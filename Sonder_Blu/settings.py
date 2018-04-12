@@ -153,7 +153,7 @@ LOGIN_URL = 'accounts:auth_login'
 LOGOUT_URL = 'accounts:auth_logout'
 
 
-redis_host = os.environ.get('REDIS_HOST', '159.65.237.170')
+redis_host = os.environ.get('REDIS_HOST', 'localhost')
 
 CHANNEL_LAYERS = {
     "default": {
