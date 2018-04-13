@@ -159,7 +159,7 @@ CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "asgi_redis.RedisChannelLayer",
         "CONFIG": {
-            "hosts": [("localhost", 6379)],
+            "hosts": ['redis://localhost:6379'],
         },
         "ROUTING": "Sonder_Blu.routing.channel_routing",
     },
