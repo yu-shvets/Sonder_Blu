@@ -25,7 +25,7 @@ SECRET_KEY = 'hf4e)dqaic@%wgzx(z*tf+q(iz(k=j^stgo_1&5m75@^j)*m7e'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['159.65.237.170']
 
 
 # Application definition
@@ -153,7 +153,7 @@ LOGIN_URL = 'accounts:auth_login'
 LOGOUT_URL = 'accounts:auth_logout'
 
 
-redis_host = os.environ.get('REDIS_HOST', 'localhost')
+redis_host = os.environ.get('REDIS_HOST', '159.65.237.170')
 
 CHANNEL_LAYERS = {
     "default": {
