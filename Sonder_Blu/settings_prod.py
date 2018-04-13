@@ -153,13 +153,13 @@ LOGIN_URL = 'accounts:auth_login'
 LOGOUT_URL = 'accounts:auth_logout'
 
 
-redis_host = os.environ.get('REDIS_HOST', '159.65.237.170')
+# redis_host = os.environ.get('REDIS_HOST', 'localhost')
 
 CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "asgi_redis.RedisChannelLayer",
         "CONFIG": {
-            "hosts": [('redis_host', 6379)],
+            "hosts": [("localhost", 6379)],
         },
         "ROUTING": "Sonder_Blu.routing.channel_routing",
     },
